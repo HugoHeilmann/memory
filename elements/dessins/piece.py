@@ -1,4 +1,4 @@
-import util
+import elements.util.util as util
 
 def piece(t, color):
     t.speed(100)

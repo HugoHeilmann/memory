@@ -1,4 +1,4 @@
-import util
+import elements.util.util as util
 
 def boo(t, body_color, mouth_color):
     t.speed(100)

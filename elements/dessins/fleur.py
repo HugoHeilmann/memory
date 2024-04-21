@@ -1,4 +1,4 @@
-import util
+import elements.util.util as util
 
 def fleur(t, petal_color):
     t.speed(100)

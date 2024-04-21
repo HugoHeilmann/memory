@@ -1,4 +1,4 @@
-import util
+import elements.util.util as util
 
 def champignon(t, color):
     t.speed(100)

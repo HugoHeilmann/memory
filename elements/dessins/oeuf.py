@@ -1,4 +1,4 @@
-import util
+import elements.util.util as util
 
 def oeuf(t, egg_color, dots_color):
     t.speed(100)
