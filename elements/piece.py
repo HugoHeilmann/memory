@@ -1,5 +1,3 @@
-import turtle
-import time
 import util
 
 def piece(t, color):
@@ -68,9 +66,3 @@ def piece(t, color):
     util.row_right_squares(t, 2)
     t.left(90)
     util.row_right_squares(t, 8)
-
-    time.sleep(5)
-
-t = turtle.Turtle()
-piece(t, "#880000")
-    
