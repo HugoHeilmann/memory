@@ -78,7 +78,7 @@ def champignon(t, color):
     t.forward(40)
     t.end_fill()
 
-    # Zone rouge
+    # Zone colorée
     t.color(color)
     t.begin_fill()
     t.forward(60)
