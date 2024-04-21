@@ -1,6 +1,22 @@
 from turtle import *
 
-def leftSquare(turtle):
+def low_traverse(turtle):
+    turtle.forward(20)
+    turtle.left(90)
+    turtle.forward(20)
+
+def double_high_traverse(turtle):
+    turtle.forward(20)
+    turtle.right(90)
+    turtle.forward(40)
+    turtle.left(90)
+
+def double_right_linear_traverse(turtle):
+    turtle.right(90)
+    turtle.forward(40)
+    turtle.right(90)
+
+def left_square(turtle):
     turtle.down()
     turtle.begin_fill()
     for i in range(4):
@@ -8,7 +24,7 @@ def leftSquare(turtle):
         turtle.left(90)
     turtle.end_fill()
 
-def rightSquare(turtle):
+def right_square(turtle):
     turtle.down()
     turtle.begin_fill()
     for i in range(4):
@@ -16,18 +32,18 @@ def rightSquare(turtle):
         turtle.right(90)
     turtle.end_fill()
 
-def rowLeftSquares(turtle, number):
+def row_left_squares(turtle, number):
     turtle.down()
     turtle.begin_fill()
     for i in range(number):
-        leftSquare(turtle)
+        left_square(turtle)
         turtle.forward(20)
     turtle.end_fill()
 
-def rowRightSquares(turtle, number):
+def row_right_squares(turtle, number):
     turtle.down()
     turtle.begin_fill()
     for i in range(number):
-        rightSquare(turtle)
+        right_square(turtle)
         turtle.forward(20)
     turtle.end_fill()
