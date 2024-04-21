@@ -1,5 +1,3 @@
-from turtle import *
-
 def low_traverse(turtle):
     turtle.forward(20)
     turtle.left(90)
