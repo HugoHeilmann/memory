@@ -25,6 +25,11 @@ def double_right_linear_traverse(turtle):
     turtle.forward(40)
     turtle.right(90)
 
+def mid_left_square(turtle):
+    turtle.forward(20)
+    turtle.left(90)
+    turtle.forward(20)
+
 def left_square(turtle):
     turtle.down()
     turtle.begin_fill()
