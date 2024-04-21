@@ -1,6 +1,6 @@
 import util
 
-def boo(t, bodyColor, mouthColor):
+def boo(t, body_color, mouth_color):
     t.speed(100)
 
     # Contour noir
@@ -44,7 +44,7 @@ def boo(t, bodyColor, mouthColor):
     util.row_right_squares(t, 3)
 
     # Encrage du corps
-    t.color(bodyColor)
+    t.color(body_color)
     t.begin_fill()
     util.walk_along_up_square(t)
     t.forward(80)
@@ -111,7 +111,7 @@ def boo(t, bodyColor, mouthColor):
     t.right(90)
     t.forward(100)
     t.down()
-    t.color(mouthColor)
+    t.color(mouth_color)
     util.row_left_squares(t, 5)
     t.left(180)
     util.row_left_squares(t, 5)
