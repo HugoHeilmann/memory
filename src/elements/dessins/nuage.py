@@ -1,6 +1,4 @@
 import usefull
-import time
-import turtle
 
 def nuage(t, body_color, reflect_color, eyes_color):
     t.speed(100)
@@ -108,8 +106,3 @@ def nuage(t, body_color, reflect_color, eyes_color):
     usefull.row_left_squares(t, 1)
     usefull.row_right_squares(t, 4)
     usefull.row_left_squares(t, 1)
-
-    time.sleep(5)
-
-t = turtle.Turtle()
-nuage(t, "#777777", "#333333", "#FFFF00")
