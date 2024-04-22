@@ -3,6 +3,16 @@ def low_traverse(turtle):
     turtle.left(90)
     turtle.forward(20)
 
+def long_left_diagonal_from_above(turtle):
+    turtle.forward(40)
+    turtle.left(90)
+    turtle.forward(20)
+
+def from_above(turtle):
+    turtle.right(90)
+    turtle.forward(60)
+    turtle.right(90)
+
 def walk_along_up_square(turtle):
     turtle.right(90)
     turtle.forward(20)
