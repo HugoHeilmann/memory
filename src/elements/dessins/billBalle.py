@@ -45,9 +45,7 @@ def bill_balle(t, color):
 
     # Reflet
     t.backward(200)
-    t.left(90)
-    t.forward(20)
-    t.right(90)
+    usefull.walk_along_up_square_left(t)
     t.color("#FFFFFF")
     usefull.row_right_squares(t, 2)
     usefull.row_left_squares(t, 1)

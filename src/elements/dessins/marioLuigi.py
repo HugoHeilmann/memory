@@ -90,7 +90,7 @@ def mario_luigi(t, clothes_color):
     t.color(clothes_color)
     usefull.left_square(t)
     t.backward(40)
-    usefull.walk_along_up_square(t)
+    usefull.walk_along_up_square_right(t)
     usefull.row_left_squares(t, 4)
     t.backward(60)
     usefull.row_right_squares(t, 3)

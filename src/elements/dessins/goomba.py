@@ -85,7 +85,7 @@ def goomba(t, body_color):
     t.backward(140)
     usefull.row_right_squares(t, 6)
     t.backward(100)
-    usefull.walk_along_up_square(t)
+    usefull.walk_along_up_square_right(t)
     usefull.row_right_squares(t, 4)
 
     # Yeux

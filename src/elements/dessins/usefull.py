@@ -13,15 +13,25 @@ def from_above(t):
     t.forward(60)
     t.right(90)
 
-def walk_along_up_square(t):
+def walk_along_up_square_right(t):
     t.right(90)
     t.forward(20)
     t.left(90)
 
-def double_walk_along_up_square(t):
+def double_walk_along_up_square_right(t):
     t.right(90)
     t.forward(40)
     t.left(90)
+
+def walk_along_up_square_left(t):
+    t.left(90)
+    t.forward(20)
+    t.right(90)
+
+def double_walk_along_up_square_left(t):
+    t.left(90)
+    t.forward(40)
+    t.right(90)
 
 def long_left_diagonal(t):
     t.left(90)
@@ -31,7 +41,7 @@ def long_left_diagonal(t):
 
 def double_high_traverse(t):
     t.forward(20)
-    double_walk_along_up_square(t)
+    double_walk_along_up_square_right(t)
 
 def double_right_linear_traverse(t):
     t.right(90)
@@ -57,15 +67,21 @@ def right_square(t):
 def row_left_squares(t, number):
     t.down()
     t.begin_fill()
-    for _ in range(number):
-        left_square(t)
+    for _ in range(2):
+        t.forward(20*number)
+        t.left(90)
         t.forward(20)
+        t.left(90)
     t.end_fill()
+    t.forward(20*number)
 
 def row_right_squares(t, number):
     t.down()
     t.begin_fill()
-    for _ in range(number):
-        right_square(t)
+    for _ in range(2):
+        t.forward(20*number)
+        t.right(90)
         t.forward(20)
+        t.right(90)
     t.end_fill()
+    t.forward(20*number)
