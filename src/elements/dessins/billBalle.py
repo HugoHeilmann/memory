@@ -1,5 +1,3 @@
-import turtle
-import time
 import usefull
 
 def bill_balle(t, color):
@@ -95,8 +93,3 @@ def bill_balle(t, color):
     t.left(180)
     t.forward(20)
     usefull.row_right_squares(t, 2)
-
-    time.sleep(5)
-
-t = turtle.Turtle()
-billBalle(t, "#000000")
