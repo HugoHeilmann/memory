@@ -2,7 +2,7 @@ import turtle
 import time
 import usefull
 
-def billBalle(t, color):
+def bill_balle(t, color):
     t.speed(100)
 
     # Corps
