@@ -18,6 +18,11 @@ def walk_along_up_square(t):
     t.forward(20)
     t.left(90)
 
+def double_walk_along_up_square(t):
+    t.right(90)
+    t.forward(40)
+    t.left(90)
+
 def long_left_diagonal(t):
     t.left(90)
     t.forward(20)
@@ -26,9 +31,7 @@ def long_left_diagonal(t):
 
 def double_high_traverse(t):
     t.forward(20)
-    t.right(90)
-    t.forward(40)
-    t.left(90)
+    double_walk_along_up_square(t)
 
 def double_right_linear_traverse(t):
     t.right(90)
