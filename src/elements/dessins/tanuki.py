@@ -1,5 +1,3 @@
-import turtle
-import time
 import usefull
 
 def tanuki(t, main_color, veins_color):
@@ -119,8 +117,3 @@ def tanuki(t, main_color, veins_color):
     t.color(main_color)
     t.down()
     usefull.row_right_squares(t, 2)
-
-    time.sleep(5)
-
-t = turtle.Turtle()
-tanuki(t, "#FFFFFF", "#FFFF00")
