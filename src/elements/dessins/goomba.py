@@ -1,7 +1,12 @@
 import usefull
 
-def goomba(t, body_color, pixel_size):
+def goomba(t, type_color, pixel_size):
     t.speed(100)
+
+    if type_color == 1:
+        body_color = "#8B4513"
+    else:
+        body_color = "#FFD700"
 
     # Pieds
     usefull.row_left_squares(t, 2, pixel_size)

@@ -1,7 +1,12 @@
 import usefull
 
-def champignon(t, color, pixel_size):
+def champignon(t, type_color, pixel_size):
     t.speed(100)
+
+    if type_color == 1:
+        color = "#FF0000"
+    else:
+        color = "#00FF00"
 
     # Contour noir
     t.right(90)

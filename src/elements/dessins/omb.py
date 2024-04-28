@@ -1,7 +1,12 @@
 import usefull
 
-def omb(t, body_color, pixel_size):
+def omb(t, type_color, pixel_size):
     t.speed(100)
+
+    if type_color == 1:
+        body_color = "#000000"
+    else:
+        body_color = "#FF1493"
 
     # Pieds
     t.color("#FFAA00")

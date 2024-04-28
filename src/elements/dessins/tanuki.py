@@ -1,7 +1,14 @@
 import usefull
 
-def tanuki(t, main_color, veins_color, pixel_size):
+def tanuki(t, type_color, pixel_size):
     t.speed(100)
+
+    if type_color == 1:
+        main_color = "#8B4513"
+        veins_color = "#000000"
+    else:
+        main_color = "#FFFFFF"
+        veins_color = "#FFFF00"
 
     # Contour noir
     usefull.row_left_squares(t, 3, pixel_size)

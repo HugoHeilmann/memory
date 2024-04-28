@@ -1,7 +1,12 @@
 import usefull
 
-def mario_luigi(t, clothes_color, pixel_size):
+def mario_luigi(t, type_color, pixel_size):
     t.speed(100)
+
+    if type_color == 1:
+        clothes_color = "#FF0000"
+    else:
+        clothes_color = "#32CD32"
 
     # Chaussures
     t.color("#663300")

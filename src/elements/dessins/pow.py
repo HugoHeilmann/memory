@@ -1,7 +1,14 @@
 import usefull
 
-def pow(t, main_color, border_color, pixel_size):
+def pow(t, type_color, pixel_size):
     t.speed(100)
+
+    if type_color == 1:
+        main_color = "#00008B"
+        border_color = "#6495ED"
+    else:
+        main_color = "#CC0000"
+        border_color = "#B22222"
 
     # Fond
     t.begin_fill()

@@ -1,7 +1,12 @@
 import usefull
 
-def bill_balle(t, color, pixel_size):
+def bill_balle(t, type_color, pixel_size):
     t.speed(100)
+
+    if type_color == 1:
+        color = "#000000"
+    else:
+        color = "#FFD700"
 
     # Corps
     t.color(color)

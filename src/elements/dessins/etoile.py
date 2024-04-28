@@ -1,7 +1,12 @@
 import usefull
 
-def etoile(t, color, pixel_size):
+def etoile(t, type_color, pixel_size):
     t.speed(100)
+
+    if type_color == 1:
+        color = "#FFFF00"
+    else:
+        color = "#191970"
 
     # Contour noir
     usefull.row_right_squares(t, 3, pixel_size)

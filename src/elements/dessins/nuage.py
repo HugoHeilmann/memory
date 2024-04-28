@@ -1,7 +1,16 @@
 import usefull
 
-def nuage(t, body_color, reflect_color, eyes_color, pixel_size):
+def nuage(t, type_color, pixel_size):
     t.speed(100)
+
+    if type_color == 1:
+        body_color = "#FFFFFF"
+        reflect_color = "#D3D3D3"
+        eyes_color = "#000000"
+    else:
+        body_color = "#000000"
+        reflect_color = "#696969"
+        eyes_color = "#FFFF00"
 
     # Contour noir
     usefull.row_right_squares(t, 4, pixel_size)

@@ -1,7 +1,12 @@
 import usefull
 
-def cheep(t, body_color, pixel_size):
+def cheep(t, type_color, pixel_size):
     t.speed(100)
+
+    if type_color == 1:
+        body_color = "#FF0000"
+    else:
+        body_color = "#00FF00"
 
     # Contour noir
     usefull.row_left_squares(t, 4, pixel_size)

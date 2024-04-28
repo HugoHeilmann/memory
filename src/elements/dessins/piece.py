@@ -1,9 +1,12 @@
 import usefull
-import turtle
-import time
 
-def piece(t, color, pixel_size):
+def piece(t, type_color, pixel_size):
     t.speed(100)
+
+    if type_color == 1:
+        color = "#FFD700"
+    else:
+        color = "#B22222"
 
     # Contour noir
     usefull.row_right_squares(t, 4, pixel_size)
@@ -66,8 +69,3 @@ def piece(t, color, pixel_size):
     usefull.row_right_squares(t, 2, pixel_size)
     t.left(90)
     usefull.row_right_squares(t, 8, pixel_size)
-
-    time.sleep(5)
-
-t = turtle.Turtle()
-piece(t, "#990000", 5)

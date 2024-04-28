@@ -1,7 +1,12 @@
 import usefull
 
-def carapace(t, main_color, pixel_size):
+def carapace(t, type_color, pixel_size):
     t.speed(100)
+
+    if type_color == 1:
+        main_color = "#32CD32"
+    else:
+        main_color = "#DC143C"
 
     # Contour noir
     usefull.left_square(t, pixel_size)

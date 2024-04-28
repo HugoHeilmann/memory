@@ -1,7 +1,14 @@
 import usefull
 
-def boo(t, body_color, mouth_color, pixel_size):
+def boo(t, type_color, pixel_size):
     t.speed(100)
+
+    if type_color == 1:
+        body_color = "#FFFFFF"
+        mouth_color = "#FF0000"
+    else:
+        body_color = "#9932CC"
+        mouth_color = "#191970"
 
     # Contour noir
     usefull.row_right_squares(t, 4, pixel_size)

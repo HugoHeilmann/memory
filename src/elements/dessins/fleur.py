@@ -1,7 +1,12 @@
 import usefull
 
-def fleur(t, petal_color, pixel_size):
+def fleur(t, type_color, pixel_size):
     t.speed(100)
+
+    if type_color == 1:
+        petal_color = "#FF8C00"
+    else:
+        petal_color = "#00BFFF"
 
     # Contour noir
     usefull.row_right_squares(t, 15, pixel_size)

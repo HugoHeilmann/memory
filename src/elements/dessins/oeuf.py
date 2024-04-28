@@ -1,7 +1,14 @@
 import usefull
 
-def oeuf(t, egg_color, dots_color, pixel_size):
+def oeuf(t, type_color, pixel_size):
     t.speed(100)
+
+    if type_color == 1:
+        egg_color = "#FFFFFF"
+        dots_color = "#00DD00"
+    else:
+        egg_color = "#8B008B"
+        dots_color = "#228B22"
 
     # Contour noir
     usefull.row_right_squares(t, 4, pixel_size)
