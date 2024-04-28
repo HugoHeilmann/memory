@@ -6,6 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+# Sonar
+report*
+.sonar_lock
+.scannerwork
+.idea
+
 # Distribution / packaging
 .Python
 build/
