@@ -1,4 +1,6 @@
 import usefull
+import turtle
+import time
 
 def drapeau(t, pixel_size):
     t.speed(100)
@@ -96,6 +98,8 @@ def drapeau(t, pixel_size):
     t.left(90)
     t.forward(pixel_size)
     t.color("#FFFFFF")
+    t.right(90)
+    t.backward(2*pixel_size)
     usefull.row_right_squares(t, 1, pixel_size)
     t.up()
     t.forward(2*pixel_size)
@@ -113,3 +117,8 @@ def drapeau(t, pixel_size):
     usefull.row_right_squares(t, 2, pixel_size)
     t.backward(pixel_size)
     usefull.row_left_squares(t, 2, pixel_size)
+
+t = turtle.Turtle()
+t.goto(-200, -200)
+drapeau(t, 2)
+time.sleep(5)

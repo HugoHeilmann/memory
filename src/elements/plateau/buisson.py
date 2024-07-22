@@ -6,6 +6,7 @@ def buisson(t, pixel_size) :
     t.speed(100)
 
     # Contour noir
+    t.color("black")
     t.left(90)
     usefull.row_left_squares(t, 1, pixel_size)
     t.right(90)
@@ -30,7 +31,7 @@ def buisson(t, pixel_size) :
     t.forward(3*pixel_size)
 
     # Remplissage vert
-    t.color("#00FF00")
+    t.color("#82DF15")
     t.left(90)
     usefull.row_right_squares(t, 2, pixel_size)
     t.backward(2*pixel_size)
