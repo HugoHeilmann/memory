@@ -4,7 +4,7 @@ def escaliers(t, pixel_size):
     t.speed(100)
 
     # Fond marron
-    t.color("#B44104") # Caramel
+    t.color("#BC410D") # Caramel
     t.begin_fill()
     for _ in range(4):
         t.forward(23*pixel_size)
@@ -70,7 +70,7 @@ def escaliers(t, pixel_size):
     t.forward(22*pixel_size)
     t.left(90)
     t.forward(2*pixel_size)
-    t.color("#F4B99A")
+    t.color("#F5ADAE")
     t.down()
     t.begin_fill()
     t.forward(20*pixel_size)

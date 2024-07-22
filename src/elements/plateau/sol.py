@@ -6,7 +6,7 @@ def sol(t, pixel_size):
     t.speed(100)
 
     # Fond marron
-    t.color("#B44104") # Caramel
+    t.color("#BB410E") # Caramel
     t.begin_fill()
     for _ in range(4):
         t.forward(21*pixel_size)
@@ -18,7 +18,7 @@ def sol(t, pixel_size):
     usefull.row_right_squares(t, 9, pixel_size)
     t.color("#B44104")
     usefull.row_right_squares(t, 1, pixel_size)
-    t.color("#F4B99A") # Ecru
+    t.color("#FBAD97") # Ecru
     usefull.row_right_squares(t, 1, pixel_size)
     t.color("#000000")
     usefull.row_right_squares(t, 10, pixel_size)
@@ -39,13 +39,13 @@ def sol(t, pixel_size):
     # Bord supérieur
     t.left(90)
     usefull.row_left_squares(t, 1, pixel_size)
-    t.color("#F4B99A")
+    t.color("#FBAD97")
     usefull.row_left_squares(t, 6, pixel_size)
     t.color("#B44104")
     usefull.row_left_squares(t, 1, pixel_size)
     t.color("#000000")
     usefull.row_left_squares(t, 1, pixel_size)
-    t.color("#F4B99A")
+    t.color("#FBAD97")
     usefull.row_left_squares(t, 13, pixel_size)
     t.color("#B44104")
     usefull.row_left_squares(t, 1, pixel_size)
@@ -53,11 +53,11 @@ def sol(t, pixel_size):
     # Bord gauche
     t.left(90)
     usefull.row_left_squares(t, 1, pixel_size)
-    t.color("#F4B99A")
+    t.color("#FBAD97")
     usefull.row_left_squares(t, 13, pixel_size)
     t.color("#000000")
     usefull.row_left_squares(t, 1, pixel_size)
-    t.color("#F4B99A")
+    t.color("#FBAD97")
     usefull.row_left_squares(t, 7, pixel_size)
     t.color("#B44104")
     usefull.row_left_squares(t, 1, pixel_size)
@@ -110,7 +110,7 @@ def sol(t, pixel_size):
     t.right(90)
     t.forward(6*pixel_size)
     t.right(90)
-    t.color("#F4B99A")
+    t.color("#FBAD97")
     t.down()
     usefull.row_left_squares(t, 2, pixel_size)
     usefull.row_right_squares(t, 2, pixel_size)

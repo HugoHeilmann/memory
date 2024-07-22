@@ -10,6 +10,7 @@ def colline(t, pixel_size):
     t.down()
 
     # Contour noir
+    t.color("black")
     for i in range(3):
         usefull.row_left_squares(t, 1, pixel_size)
         t.left(90)
@@ -60,7 +61,7 @@ def colline(t, pixel_size):
     # Remplissage vert
     t.left(180)
     t.forward(pixel_size)
-    t.color("#00DD00")
+    t.color("#0CC404")
     t.begin_fill()
     t.forward(60*pixel_size)
     t.right(180)
