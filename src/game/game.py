@@ -549,6 +549,141 @@ def sol(t, pixel_size):
     t.forward(pixel_size)
     t.down()
     usefull.row_right_squares(t, 6, pixel_size)
+
+def bloc(t, pixel_size) :
+    t.speed(100)
+
+    # Fond noir
+    t.begin_fill()
+    for _ in range(4):
+        t.forward(12*pixel_size)
+        for _ in range(2):
+            t.right(90)
+            t.forward(pixel_size)
+            t.left(90)
+            t.forward(pixel_size)
+        t.right(90)
+    t.end_fill()
+
+    # Bordure
+    t.forward(12*pixel_size)
+    t.right(90)
+    t.forward(pixel_size)
+    t.color("#754E17")
+    usefull.row_right_squares(t, 1, pixel_size)
+    usefull.row_left_squares(t, 12, pixel_size)
+    t.right(90)
+    usefull.row_right_squares(t, 1, pixel_size)
+    t.backward(pixel_size)
+    usefull.row_left_squares(t, 12, pixel_size)
+    usefull.row_right_squares(t, 1, pixel_size)
+
+    # Fond jaune foncé
+    t.right(90)
+    t.forward(pixel_size)
+    t.color("#B3842E")
+    t.begin_fill()
+    for _ in range(4):
+        t.forward(11*pixel_size)
+        t.right(90)
+        t.forward(pixel_size)
+        t.left(90)
+        t.forward(pixel_size)
+        t.right(90)
+    t.end_fill()
+
+    # Fond jaune clair
+    t.forward(pixel_size)
+    usefull.walk_along_up_square_right(t, pixel_size)
+    t.color("#F2C31F")
+    t.begin_fill()
+    for _ in range(4):
+        t.forward(9*pixel_size)
+        t.right(90)
+        t.forward(pixel_size)
+        t.left(90)
+        t.forward(pixel_size)
+        t.right(90)
+    t.end_fill()
+
+    # Reflets blanc
+    t.forward(5*pixel_size)
+    t.color("white")
+    usefull.row_left_squares(t, 1, pixel_size)
+    t.up()
+    t.forward(pixel_size)
+    t.down()
+    usefull.row_left_squares(t, 3, pixel_size)
+    t.right(90)
+    usefull.row_right_squares(t, 1, pixel_size)
+    t.backward(pixel_size)
+    usefull.row_left_squares(t, 3, pixel_size)
+
+    # ?
+    t.backward(pixel_size)
+    t.color("black")
+    usefull.row_right_squares(t, 7, pixel_size)
+    usefull.double_walk_along_up_square_right(t, pixel_size)
+    usefull.row_left_squares(t, 1, pixel_size)
+    t.right(90)
+    usefull.row_left_squares(t, 3, pixel_size)
+    usefull.row_right_squares(t, 1, pixel_size)
+    t.right(90)
+    t.forward(pixel_size)
+    usefull.row_left_squares(t, 2, pixel_size)
+    t.left(90)
+    t.forward(2*pixel_size)
+    for _ in range(2):
+        usefull.row_left_squares(t, 2, pixel_size)
+        t.right(90)
+        usefull.row_left_squares(t, 3, pixel_size)
+        t.right(90)
+    usefull.from_above(t, pixel_size)
+    t.forward(pixel_size)
+    usefull.row_left_squares(t, 3, pixel_size)
+    t.right(90)
+    usefull.row_left_squares(t, 3, pixel_size)
+    t.left(180)
+    usefull.row_left_squares(t, 6, pixel_size)
+    t.right(90)
+    usefull.row_left_squares(t, 2, pixel_size)
+    usefull.row_right_squares(t, 1, pixel_size)
+
+    # Plein blanc
+    t.backward(pixel_size)
+    t.right(90)
+    t.color("white")
+    usefull.row_right_squares(t, 1, 2*pixel_size)
+    t.left(90)
+    usefull.row_left_squares(t, 1, pixel_size)
+    t.backward(3*pixel_size)
+    usefull.row_right_squares(t, 1, pixel_size)
+    t.right(90)
+    usefull.row_left_squares(t, 3, 2*pixel_size)
+    usefull.row_left_squares(t, 1, pixel_size)
+    t.right(90)
+    usefull.row_right_squares(t, 2, pixel_size)
+    t.right(90)
+    t.forward(pixel_size)
+    usefull.row_left_squares(t, 2, pixel_size)
+    t.right(90)
+    usefull.row_right_squares(t, 1, 2*pixel_size)
+    t.backward(2*pixel_size)
+    t.left(90)
+    for i in range(2):
+        usefull.row_left_squares(t, 1, 2*pixel_size)
+        if i != 1:
+            t.backward(pixel_size)
+    t.up()
+    t.left(90)
+    t.forward(3*pixel_size)
+    t.left(90)
+    t.down()
+    for i in range(2):
+        usefull.row_right_squares(t, 1, 2*pixel_size)
+        if i != 1:
+            t.backward(pixel_size)
+            
 ### TEMPORAIRE ###
 from turtle import *
 def play() :
@@ -562,6 +697,7 @@ def play() :
 
     # Positionnement du sol
     ground_pixel_size = 6
+    '''
     for line in range(2): # Deux lignes de sol pour l'effet de profondeur
         for i in range(20):
             landscape_turtle.up()
@@ -575,6 +711,7 @@ def play() :
             landscape_turtle.down()
             sol(landscape_turtle, ground_pixel_size)
         landscape_turtle.setheading(0)
+    '''
 
     # Positionnement des escaliers
     for nbMarches in range(3, 8):
@@ -628,9 +765,38 @@ def play() :
     landscape_turtle.down()
     buisson(landscape_turtle, 2*ground_pixel_size)
 
-    time.sleep(5)
-
     # Initialisation du plateau de jeu
+    landscape_turtle.up()
+    landscape_turtle.goto(-570, 600)
+    landscape_turtle.setheading(0)
+    landscape_turtle.down()
+    landscape_turtle.color("black")
+    landscape_turtle.begin_fill()
+    for _ in range(2):
+        landscape_turtle.forward(1100)
+        landscape_turtle.circle(-50, 90)
+        landscape_turtle.forward(900)
+        landscape_turtle.circle(-50, 90)
+    landscape_turtle.end_fill()
+
+    landscape_turtle.up()
+    landscape_turtle.right(90)
+    landscape_turtle.forward(50)
+    landscape_turtle.left(90)
+    landscape_turtle.forward(50)
+    landscape_turtle.color("#BC410D")
+    landscape_turtle.down()
+    landscape_turtle.begin_fill()
+    for _ in range(2):
+        landscape_turtle.forward(1000)
+        landscape_turtle.circle(-50, 90)
+        landscape_turtle.forward(800)
+        landscape_turtle.circle(-50, 90)
+    landscape_turtle.end_fill()
+    landscape_turtle.up()
+
+
+    time.sleep(5)
 
     # Demande de la difficulté de jeu
     input_turtle = turtle.Turtle()
