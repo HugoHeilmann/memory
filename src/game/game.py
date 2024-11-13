@@ -1,2955 +1,29 @@
-import turtle
 import random
 import time
-import usefull
+import turtle
+
+from elements.dessins.billBalle import bill_balle
+from elements.dessins.boo import boo
+from elements.dessins.carapace import carapace
+from elements.dessins.champignon import champignon
+from elements.dessins.cheep import cheep
+from elements.dessins.etoile import etoile
+from elements.dessins.fleur import fleur
+from elements.dessins.goomba import goomba
+from elements.dessins.marioLuigi import mario_luigi
+from elements.dessins.nuage import nuage
+from elements.dessins.oeuf import oeuf
+from elements.dessins.omb import omb
+from elements.dessins.piece import piece
+from elements.dessins.pow import pow
+from elements.dessins.tanuki import tanuki
+from elements.plateau.bloc import bloc
+from elements.plateau.buisson import buisson
+from elements.plateau.colline import colline
+from elements.plateau.drapeau import drapeau
+from elements.plateau.escaliers import escaliers
+from elements.plateau.sol import sol
 
-### TEMPORAIRE ###
-
-## TOUTES LES FONCTIONS DES ELEMENTS DU JEU ##
-
-def champignon(t, type_color, pixel_size):
-    t.speed(0)
-
-    if type_color == 1:
-        color = "#FF0000"
-    else:
-        color = "#00FF00"
-
-    # Contour noir
-    t.color("black")
-    t.right(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.left_square(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 8, pixel_size)
-    usefull.left_square(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 6, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.right_square(t, pixel_size)
-    usefull.double_high_traverse(t, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 7, pixel_size)
-    t.backward(pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.right_square(t, pixel_size)
-    usefull.double_high_traverse(t, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 3, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(180)
-    t.forward(2*pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(180)
-    t.forward(2*pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 3, pixel_size)
-    usefull.right_square(t, pixel_size)
-
-    # Zone beige
-    t.color("#FFC1A0")
-    t.begin_fill()
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    t.forward(8*pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.end_fill()
-
-    # Zone colorée
-    t.color(color)
-    t.begin_fill()
-    t.forward(3*pixel_size)
-    t.left(90)
-    t.forward(6*pixel_size)
-    t.left(90)
-    usefull.double_high_traverse(t, pixel_size)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(6*pixel_size)
-    t.left(90)
-    usefull.double_high_traverse(t, pixel_size)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(6*pixel_size)
-    t.left(90)
-    t.forward(3*pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    t.forward(8*pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.end_fill()
-
-    # Pois blanc inférieur droit
-    t.left(180)
-    t.forward(pixel_size)
-    t.color("#FFFFFF")
-    t.right(90)
-    t.begin_fill()
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.end_fill()
-
-    # Pois blanc supérieur droit
-    t.up()
-    t.left(180)
-    t.forward(5*pixel_size)
-    t.right(90)
-    t.down()
-    t.begin_fill()
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.end_fill()
-
-    # Pois blanc central
-    t.up()
-    t.left(180)
-    t.forward(3*pixel_size)
-    t.left(90)
-    t.down()
-    t.begin_fill()
-    t.forward(3*pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    usefull.from_above(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    usefull.from_above(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    usefull.from_above(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    t.end_fill()
-
-    # Pois blanc supérieur gauche
-    t.up()
-    t.left(180)
-    t.forward(6*pixel_size)
-    t.down()
-    t.begin_fill()
-    t.forward(pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    t.forward(pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.end_fill()
-
-    # Pois blanc inférieur gauche
-    t.up()
-    t.forward(3*pixel_size)
-    t.down()
-    t.begin_fill()
-    t.forward(2*pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.right(90)
-    t.forward(4*pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.end_fill()
-    t.setheading(0)
-
-def boo(t, type_color, pixel_size):
-    t.speed(0)
-
-    if type_color == 1:
-        body_color = "#FFFFFF"
-        mouth_color = "#FF0000"
-    else:
-        body_color = "#9932CC"
-        mouth_color = "#191970"
-
-    # Contour noir
-    t.color("black")
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.left_square(t, pixel_size)
-    t.forward(pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.left_square(t, pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 5, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.forward(pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 5, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-
-    # Encrage du corps
-    t.color(body_color)
-    t.begin_fill()
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(4*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(3*pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    t.forward(3*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(5*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(5*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(3*pixel_size)
-    t.end_fill()
-
-    # Yeux
-    t.up()
-    t.color("black")
-    t.left(90)
-    t.forward(7*pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.up()
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    t.down()
-    usefull.row_right_squares(t, 2, pixel_size)
-
-    # Main
-    t.up()
-    t.left(90)
-    t.forward(5*pixel_size)
-    t.down()
-    usefull.right_square(t, pixel_size)
-    t.forward(pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.right_square(t, pixel_size)
-
-    # Bouche
-    t.up()
-    t.forward(pixel_size)
-    t.right(90)
-    t.forward(5*pixel_size)
-    t.down()
-    t.color(mouth_color)
-    usefull.row_left_squares(t, 5, pixel_size)
-    t.left(180)
-    usefull.row_left_squares(t, 5, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    usefull.left_square(t, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.left(180)
-    usefull.row_right_squares(t, 5, pixel_size)
-    t.left(90)
-    usefull.left_square(t, pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.forward(pixel_size)
-    t.left(90)
-    t.forward(3*pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.setheading(0)
-
-def fleur(t, type_color, pixel_size):
-    t.speed(0)
-
-    if type_color == 1:
-        petal_color = "#FF8C00"
-    else:
-        petal_color = "#00BFFF"
-
-    # Contour noir
-    t.color("black")
-    usefull.row_right_squares(t, 15, pixel_size)
-    t.backward(pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.left_square(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    t.left(90)
-    usefull.left_square(t, pixel_size)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.left(90)
-    usefull.left_square(t, pixel_size)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-    usefull.left_square(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(5*pixel_size)
-    t.left(90)
-    t.forward(3*pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.right(90)
-    t.backward(pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 1, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.left(90)
-    usefull.right_square(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.left_square(t, pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.left_square(t, pixel_size)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-
-    # Encrage des pétales
-    t.color(petal_color)
-    t.begin_fill()
-    t.right(90)
-    t.forward(pixel_size)
-    t.left(90)
-    t.forward(6*pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.left(90)
-    t.forward(4*pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    t.forward(pixel_size)
-    t.left(90)
-    t.forward(4*pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.end_fill()
-
-    # Yeux
-    t.up()
-    t.left(90)
-    t.forward(4*pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.left(180)
-    t.color("#000000")
-    t.down()
-    usefull.row_right_squares(t, 1, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.up()
-    t.forward(pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 1, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-
-    # Pied droit
-    t.up()
-    t.right(90)
-    t.forward(7*pixel_size)
-    t.left(90)
-    t.color("#0BC600")
-    t.down()
-    t.begin_fill()
-    t.forward(pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.right(90)
-    t.forward(5*pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.end_fill()
-
-    # Corps
-    t.up()
-    t.left(90)
-    t.forward(pixel_size)
-    t.left(90)
-    t.forward(4*pixel_size)
-    t.left(90)
-    t.down()
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.backward(2*pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-
-    # Pied gauche
-    t.up()
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 5, pixel_size)
-    t.left(180)
-    usefull.row_left_squares(t, 5, pixel_size)
-    t.left(90)
-    usefull.low_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.setheading(0)
-
-def mario_luigi(t, type_color, pixel_size):
-    t.speed(0)
-
-    if type_color == 1:
-        clothes_color = "#FF0000"
-    else:
-        clothes_color = "#32CD32"
-
-    # Chaussures
-    t.color("#663300")
-    usefull.row_right_squares(t, 4, pixel_size)
-    t.backward(3*pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.up()
-    t.forward(4*pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.backward(3*pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-
-    # Salopette
-    t.up()
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.color("#000077")
-    t.down()
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.left(180)
-    usefull.row_left_squares(t, 8, pixel_size)
-    t.left(90)
-    usefull.low_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.forward(pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.forward(pixel_size)
-    usefull.left_square(t, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 4, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.backward(2*pixel_size)
-    t.right(90)
-    t.forward(3*pixel_size)
-    usefull.left_square(t, pixel_size)
-
-    # Boutons
-    t.up()
-    t.right(90)
-    t.forward(pixel_size)
-    t.color("#FFFF00")
-    t.down()
-    usefull.left_square(t, pixel_size)
-    t.up()
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.down()
-    usefull.left_square(t, pixel_size)
-
-    # Mains
-    t.up()
-    t.forward(3*pixel_size)
-    t.color("#FFA07A")
-    t.down()
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.backward(2*pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.up()
-    t.forward(6*pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.backward(2*pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-
-    # T-shirt
-    t.color(clothes_color)
-    usefull.left_square(t, pixel_size)
-    t.backward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_left_squares(t, 4, pixel_size)
-    t.backward(3*pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.up()
-    t.forward(pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.up()
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    t.down()
-    usefull.row_right_squares(t, 1, pixel_size)
-    usefull.left_square(t, pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.backward(4*pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.backward(3*pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.left(180)
-    t.up()
-    t.forward(3*pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 3, pixel_size)
-
-    # Visage
-    t.up()
-    t.forward(2*pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    t.color("#FFA07A")
-    t.down()
-    usefull.row_left_squares(t, 7, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.backward(2*pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 4, pixel_size)
-    t.backward(2*pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.up()
-    t.forward(pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.up()
-    t.left(90)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.left_square(t, pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.forward(pixel_size)
-    ### Yeux ###
-    t.color("#000000")
-    usefull.left_square(t, pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.forward(pixel_size)
-    ### End ###
-    t.color("#FFA07A")
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.backward(3*pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-
-    # Pilosité
-    t.color("#663300")
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.up()
-    t.forward(4*pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 4, pixel_size)
-    t.backward(3*pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.up()
-    t.left(90)
-    t.forward(3*pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-
-    # Casquette
-    t.color(clothes_color)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 5, pixel_size)
-    t.backward(5*pixel_size)
-    usefull.row_right_squares(t, 8, pixel_size)
-    t.setheading(0)
-
-def oeuf(t, type_color, pixel_size):
-    t.speed(0)
-
-    if type_color == 1:
-        egg_color = "#FFFFFF"
-        dots_color = "#00DD00"
-    else:
-        egg_color = "#8B008B"
-        dots_color = "#228B22"
-
-    # Contour noir
-    t.color("black")
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.right_square(t, pixel_size)
-    usefull.double_high_traverse(t, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.left_square(t, pixel_size)
-    t.forward(pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.forward(pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.left_square(t, pixel_size)
-    t.forward(pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-
-    # Encrage
-    t.color(egg_color)
-    t.begin_fill()
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(4*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(4*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(4*pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(4*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.end_fill()
-
-    # Pois inférieur gauche
-    t.up()
-    t.color(dots_color)
-    t.backward(2*pixel_size)
-    t.left(90)
-    t.down()
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.backward(pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-
-    # Pois inférieur droit
-    t.up()
-    t.left(90)
-    t.forward(9*pixel_size)
-    t.left(90)
-    t.down()
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.backward(3*pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-
-    # Pois supérieur droit
-    t.up()
-    t.left(180)
-    t.forward(4*pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.backward(2*pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    t.left(180)
-    usefull.row_right_squares(t, 3, pixel_size)
-
-    # Pois supérieur gauche
-    t.up()
-    t.right(90)
-    t.forward(5*pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.left(180)
-    usefull.row_right_squares(t, 4, pixel_size)
-    t.left(180)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-
-    # Pois central
-    t.up()
-    t.left(180)
-    t.forward(6*pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 3, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 5, pixel_size)
-    t.backward(5*pixel_size)
-    usefull.row_right_squares(t, 5, pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 5, pixel_size)
-    t.backward(4*pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.setheading(0)
-
-def omb(t, type_color, pixel_size):
-    t.speed(0)
-
-    if type_color == 1:
-        body_color = "#000000"
-    else:
-        body_color = "#FF1493"
-
-    # Pieds
-    t.color("#FFAA00")
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.backward(2*pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.backward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.up()
-    t.forward(4*pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.backward(2*pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-
-    # Corps
-    t.forward(pixel_size)
-    t.color(body_color)
-    usefull.row_left_squares(t, 4, pixel_size)
-    t.forward(pixel_size)
-    t.left(180)
-    usefull.row_left_squares(t, 6, pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.left(180)
-    usefull.row_left_squares(t, 10, pixel_size)
-    t.forward(pixel_size)
-    t.left(180)
-    usefull.row_left_squares(t, 12, pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 12, pixel_size)
-    t.backward(12*pixel_size)
-    usefull.row_right_squares(t, 13, pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 13, pixel_size)
-    t.left(180)
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    t.up()
-    t.forward(pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.up()
-    t.forward(pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.left(180)
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.up()
-    t.forward(pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.up()
-    t.forward(pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 3, pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 12, pixel_size)
-    t.backward(11*pixel_size)
-    usefull.row_left_squares(t, 10, pixel_size)
-    t.up()
-    t.left(90)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 8, pixel_size)
-    t.backward(6*pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-
-    # Yeux
-    t.left(90)
-    t.forward(3*pixel_size)
-    t.color("#FFFFFF")
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.up()
-    t.left(90)
-    t.forward(pixel_size)
-    t.left(90)
-    t.down()
-    usefull.row_right_squares(t, 3, pixel_size)
-
-    # Clé
-    t.up()
-    t.right(90)
-    t.forward(8*pixel_size)
-    t.right(90)
-    t.down()
-    usefull.row_left_squares(t, 6, pixel_size)
-    t.left(180)
-    t.color("#000000")
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.color("#FFFFFF")
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.color("#000000")
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.setheading(0)
-
-def nuage(t, type_color, pixel_size):
-    t.speed(0)
-
-    if type_color == 1:
-        body_color = "#FFFFFF"
-        reflect_color = "#D3D3D3"
-        eyes_color = "#000000"
-    else:
-        body_color = "#000000"
-        reflect_color = "#696969"
-        eyes_color = "#FFFF00"
-
-    # Contour noir
-    t.color("black")
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.left_square(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    usefull.row_right_squares(t, 10, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.right_square(t, pixel_size)
-
-    # Reflet
-    t.color(reflect_color)
-    usefull.row_left_squares(t, 1, pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    t.left(90)
-    usefull.left_square(t, pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_left_squares(t, 4, pixel_size)
-    t.backward(pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.right_square(t, pixel_size)
-
-    # Encrage
-    t.color(body_color)
-    t.begin_fill()
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(9*pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(3*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(6*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(4*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(3*pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(3*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(5*pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    t.forward(3*pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.end_fill()
-
-    # Yeux
-    t.up()
-    t.forward(3*pixel_size)
-    t.left(90)
-    t.forward(3*pixel_size)
-    t.color(eyes_color)
-    t.down()
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.up()
-    t.right(90)
-    t.forward(3*pixel_size)
-    t.right(90)
-    t.down()
-    usefull.row_right_squares(t, 3, pixel_size)
-
-    # Bouche
-    t.up()
-    t.backward(6*pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.left(180)
-    t.down()
-    usefull.row_left_squares(t, 1, pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.setheading(0)
-
-def carapace(t, type_color, pixel_size):
-    t.speed(0)
-
-    if type_color == 1:
-        main_color = "#32CD32"
-    else:
-        main_color = "#DC143C"
-
-    # Contour noir
-    t.color("black")
-    usefull.left_square(t, pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    usefull.double_walk_along_up_square_right(t, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    usefull.double_walk_along_up_square_right(t, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 5, pixel_size)
-    t.backward(pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.backward(pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.backward(pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.double_walk_along_up_square_right(t, pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.backward(pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.backward(pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.backward(pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-
-    # Bordure blanche
-    t.color("#FFFFFF")
-    t.right(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.left(90)
-    usefull.left_square(t, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.row_left_squares(t, 4, pixel_size)
-    t.backward(4*pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.right_square(t, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 1, pixel_size)
-
-    # Encrage
-    t.up()
-    t.forward(2*pixel_size)
-    t.right(90)
-    t.color(main_color)
-    t.down()
-    t.begin_fill()
-    t.forward(14*pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.right(90)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    usefull.double_walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.right(90)
-    t.forward(6*pixel_size)
-    usefull.double_walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.end_fill()
-    t.right(90)
-    t.forward(pixel_size)
-    t.begin_fill()
-    for _ in range(2):
-        t.forward(12*pixel_size)
-        t.left(90)
-        t.forward(3*pixel_size)
-        t.left(90)
-    t.end_fill()
-    t.forward(pixel_size)
-    t.left(90)
-    t.forward(3*pixel_size)
-    t.begin_fill()
-    for _ in range(2):
-        t.forward(2*pixel_size)
-        t.right(90)
-        t.forward(10*pixel_size)
-        t.right(90)
-    t.end_fill()
-    t.forward(2*pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.row_left_squares(t, 8, pixel_size)
-    t.left(180)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-
-    # Craquelures
-    t.left(180)
-    t.color("#000000")
-    usefull.row_right_squares(t, 4, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    for _ in range(4):
-        usefull.row_left_squares(t, 1, pixel_size)
-        t.left(90)
-        t.forward(pixel_size)
-        t.right(90)
-    t.up()
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 1, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    usefull.left_square(t, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.left_square(t, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    for _ in range(2):
-        usefull.row_left_squares(t, 1, pixel_size)
-        t.left(90)
-        t.forward(pixel_size)
-        t.right(90)
-    t.left(90)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    t.left(180)
-    for _ in range(4):
-        usefull.row_right_squares(t, 1, pixel_size)
-        t.right(90)
-        t.forward(pixel_size)
-        t.left(90)
-    t.setheading(0)
-
-def cheep(t, type_color, pixel_size):
-    t.speed(0)
-
-    if type_color == 1:
-        body_color = "#FF0000"
-    else:
-        body_color = "#00FF00"
-
-    # Contour noir
-    t.color("black")
-    usefull.row_left_squares(t, 4, pixel_size)
-    t.backward(pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    t.backward(pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 1, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.left_square(t, pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 4, pixel_size)
-    t.right(90)
-    for _ in range(4):
-        usefull.right_square(t, pixel_size)
-        t.forward(pixel_size)
-        t.right(90)
-        t.forward(pixel_size)
-        t.left(90)
-    t.right(90)
-    usefull.row_left_squares(t, 3, pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.backward(3*pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 5, pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.backward(pixel_size)
-    usefull.row_right_squares(t, 5, pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    for _ in range(2):
-        usefull.right_square(t, pixel_size)
-        t.forward(pixel_size)
-        t.right(90)
-        t.forward(pixel_size)
-        t.left(90)
-    t.up()
-    t.backward(6*pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.left(180)
-    t.down()
-    usefull.row_left_squares(t, 5, pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.backward(pixel_size)
-    usefull.row_right_squares(t, 5, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.row_left_squares(t, 4, pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(180)
-    t.forward(3*pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.up()
-    t.forward(2*pixel_size)
-    t.left(90)
-    t.forward(6*pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 4, pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.backward(3*pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(5*pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.left_square(t, pixel_size)
-
-    # Bouche
-    t.left(90)
-    t.color("#FFFF00")
-    usefull.row_left_squares(t, 3, pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.left(180)
-    usefull.row_right_squares(t, 5, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    usefull.left_square(t, pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.forward(pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 4, pixel_size)
-    t.left(180)
-    usefull.row_left_squares(t, 2, pixel_size)
-
-    # Ventre
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.color("#FFFFFF")
-    t.up()
-    t.forward(2*pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 5, pixel_size)
-    t.backward(4*pixel_size)
-    usefull.row_left_squares(t, 5, pixel_size)
-    t.backward(4*pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.backward(5*pixel_size)
-    usefull.row_left_squares(t, 5, pixel_size)
-
-    # Queue
-    t.up()
-    t.forward(pixel_size)
-    t.color("#FFFF00")
-    t.down()
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.backward(2*pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-
-    # Aile
-    t.color("#FFFFFF")
-    t.forward(pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 4, pixel_size)
-    t.backward(4*pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.backward(pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-
-    # Corps
-    t.color(body_color)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.backward(2*pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 1, pixel_size)
-    usefull.right_square(t, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.up()
-    t.forward(4*pixel_size)
-    t.down()
-    usefull.left_square(t, pixel_size)
-    t.up()
-    t.left(90)
-    t.forward(4*pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 4, pixel_size)
-    t.backward(3*pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 5, pixel_size)
-    t.left(180)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 3, pixel_size)
-
-    # Crête
-    t.forward(pixel_size)
-    t.left(90)
-    t.color("#FFFF00")
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.left(90)
-    usefull.left_square(t, pixel_size)
-    usefull.row_right_squares(t, 5, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.left_square(t, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 3, pixel_size)
-
-    # Yeux
-    t.up()
-    t.color("#FFFFFF")
-    usefull.double_right_linear_traverse(t, pixel_size)
-    t.forward(3*pixel_size)
-    t.left(90)
-    t.down()
-    t.begin_fill()
-    t.forward(5*pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(5*pixel_size)
-    t.right(90)
-    t.forward(4*pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    usefull.from_above(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    t.end_fill()
-
-    # Pupilles
-    t.left(180)
-    t.forward(4*pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.color("#000000")
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.up()
-    usefull.double_right_linear_traverse(t, pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.setheading(0)
-
-def bill_balle(t, type_color, pixel_size):
-    t.speed(0)
-
-    if type_color == 1:
-        color = "#000000"
-    else:
-        color = "#FFD700"
-
-    # Corps
-    t.color(color)
-    usefull.row_left_squares(t, 12, pixel_size)
-    t.left(180)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.row_left_squares(t, 6, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    t.forward(4*pixel_size)
-    t.left(180)
-    usefull.row_right_squares(t, 14, pixel_size)
-    t.left(180)
-    usefull.row_right_squares(t, 15, pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 15, pixel_size)
-    t.left(180)
-    usefull.row_right_squares(t, 16, pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 16, pixel_size)
-    t.left(180)
-    usefull.row_right_squares(t, 16, pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 16, pixel_size)
-    t.left(180)
-    usefull.row_right_squares(t, 15, pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 15, pixel_size)
-    t.backward(14*pixel_size)
-    usefull.row_left_squares(t, 14, pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 12, pixel_size)
-    t.backward(12*pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-
-    # Reflet
-    t.backward(10*pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    t.color("#FFFFFF")
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.up()
-    t.forward(pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 5, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-
-    # Oeil
-    t.up()
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.backward(2*pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.left_square(t, pixel_size)
-    usefull.right_square(t, pixel_size)
-
-    # Bras
-    t.up()
-    t.backward(9*pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.right(90)
-    t.forward(3*pixel_size)
-    t.left(180)
-    usefull.row_left_squares(t, 4, pixel_size)
-    t.backward(4*pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.backward(3*pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    t.left(180)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.setheading(0)
-
-def etoile(t, type_color, pixel_size):
-    t.speed(0)
-
-    if type_color == 1:
-        color = "#FFFF00"
-    else:
-        color = "#191970"
-
-    # Contour noir
-    t.color("black")
-    usefull.row_right_squares(t, 3, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.backward(pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 1, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 1, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 4, pixel_size)
-    t.forward(pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t ,2, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.row_left_squares(t, 5, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    for _ in range(4):
-        usefull.left_square(t, pixel_size)
-        t.forward(pixel_size)
-        t.left(90)
-        t.forward(pixel_size)
-        t.right(90)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.left_square(t, pixel_size)
-
-    # Encrage
-    t.color(color)
-    t.left(90)
-    t.begin_fill()
-    t.forward(pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    t.forward(pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.left(90)
-    t.forward(4*pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    t.forward(4*pixel_size)
-    t.left(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.end_fill()
-
-    # Yeux
-    t.up()
-    t.left(180)
-    t.forward(6*pixel_size)
-    t.left(90)
-    t.forward(5*pixel_size)
-    t.color("#000000")
-    t.down()
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.up()
-    t.right(90)
-    t.forward(pixel_size)
-    t.right(90)
-    t.down()
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.setheading(0)
-
-def goomba(t, type_color, pixel_size):
-    t.speed(0)
-
-    if type_color == 1:
-        body_color = "#8B4513"
-    else:
-        body_color = "#FFD700"
-
-    # Pieds
-    t.color("black")
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.backward(3*pixel_size)
-    usefull.row_right_squares(t, 5, pixel_size)
-    t.backward(5*pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 6, pixel_size)
-    t.backward(5*pixel_size)
-    usefull.row_right_squares(t, 5, pixel_size)
-    t.up()
-    t.forward(2*pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.backward(2*pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    usefull.right_square(t, pixel_size)
-    t.forward(pixel_size)
-    usefull.left_square(t, pixel_size)
-    usefull.right_square(t, pixel_size)
-
-    # Corps
-    t.left(90)
-    t.forward(pixel_size)
-    t.color("#FFC992")
-    usefull.row_right_squares(t, 5, pixel_size)
-    t.backward(4*pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    t.forward(3*pixel_size)
-    t.left(180)
-    usefull.row_right_squares(t, 8, pixel_size)
-    t.backward(8*pixel_size)
-    usefull.row_left_squares(t, 8, pixel_size)
-    t.left(90)
-    usefull.low_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-
-    # Corps
-    t.up()
-    t.forward(5*pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.right(90)
-    t.color(body_color)
-    t.down()
-    usefull.row_left_squares(t, 16, pixel_size)
-    t.left(180)
-    t.forward(pixel_size)
-    usefull.row_left_squares(t, 4, pixel_size)
-    t.forward(6*pixel_size)
-    usefull.row_left_squares(t, 4, pixel_size)
-    t.forward(pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    usefull.row_right_squares(t, 16, pixel_size)
-    t.backward(16*pixel_size)
-    usefull.row_left_squares(t, 16, pixel_size)
-    t.up()
-    t.left(90)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 14, pixel_size)
-    t.backward(14*pixel_size)
-    usefull.row_left_squares(t, 14, pixel_size)
-    t.up()
-    usefull.double_right_linear_traverse(t, pixel_size)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 12, pixel_size)
-    t.backward(11*pixel_size)
-    usefull.row_left_squares(t, 10, pixel_size)
-    t.up()
-    t.left(90)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 8, pixel_size)
-    t.backward(7*pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.backward(5*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-
-    # Yeux
-    t.left(90)
-    t.forward(6*pixel_size)
-    t.color("#FFFFFF")
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 4, pixel_size)
-    t.up()
-    t.right(90)
-    t.forward(7*pixel_size)
-    t.right(90)
-    t.down()
-    usefull.row_left_squares(t, 4, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-
-    # Sourcils + pupilles
-    t.up()
-    t.forward(2*pixel_size)
-    t.right(90)
-    t.forward(4*pixel_size)
-    t.left(180)
-    t.color("#000000")
-    t.down()
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 5, pixel_size)
-    usefull.left_square(t, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.setheading(0)
-
-def piece(t, type_color, pixel_size):
-    t.speed(0)
-
-    if type_color == 1:
-        color = "#FFD700"
-    else:
-        color = "#B22222"
-
-    # Contour noir
-    t.color("black")
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 8, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 4, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 8, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-
-    # Encrage
-    t.color(color)
-    t.begin_fill()
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(4*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(8*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(4*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(8*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.end_fill()
-
-    # Coeur
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    t.forward(pixel_size)
-    t.color("#000000")
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 8, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 8, pixel_size)
-    t.setheading(0)
-
-def pow(t, type_color, pixel_size):
-    t.speed(0)
-
-    if type_color == 1:
-        main_color = "#00008B"
-        border_color = "#6495ED"
-    else:
-        main_color = "#CC0000"
-        border_color = "#B22222"
-
-    # Fond
-    t.color("black")
-    t.begin_fill()
-    for _ in range (4):
-        t.forward(18*pixel_size)
-        t.left(90)
-    t.end_fill()
-
-    # Bordure
-    t.left(90)
-    t.forward(4*pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.right(90)
-    t.color(border_color)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 14, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.up()
-    t.forward(10*pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 14, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-
-    # Bleu principal
-    t.left(90)
-    t.color(main_color)
-    t.begin_fill()
-    for _ in range(2):
-        t.forward(14*pixel_size)
-        t.left(90)
-        t.forward(2*pixel_size)
-        t.left(90)
-    t.end_fill()
-    t.up()
-    t.right(90)
-    t.forward(12*pixel_size)
-    t.left(90)
-    t.down()
-    t.begin_fill()
-    for _ in range(2):
-        t.forward(14*pixel_size)
-        t.left(90)
-        t.forward(2*pixel_size)
-        t.left(90)
-    t.end_fill()
-
-    # P
-    t.up()
-    t.color("#FFFFFF")
-    t.left(90)
-    t.forward(3*pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 8, pixel_size)
-    t.backward(8*pixel_size)
-    usefull.row_right_squares(t, 8, pixel_size)
-    t.backward(pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 4, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-
-    # O
-    t.up()
-    t.left(180)
-    t.forward(5*pixel_size)
-    t.left(90)
-    t.backward(2*pixel_size)
-    usefull.row_left_squares(t, 6, pixel_size)
-    t.backward(7*pixel_size)
-    usefull.row_right_squares(t, 8, pixel_size)
-    t.backward(pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 6, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-
-    # W
-    t.up()
-    t.left(180)
-    t.forward(4*pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.left(180)
-    usefull.row_right_squares(t, 5, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 7, pixel_size)
-    t.up()
-    t.right(90)
-    t.forward(3*pixel_size)
-    t.right(90)
-    t.down()
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.setheading(0)
-
-def tanuki(t, type_color, pixel_size):
-    turtle.speed(100)
-
-    if type_color == 1:
-        main_color = "#8B4513"
-        veins_color = "#000000"
-    else:
-        main_color = "#FFFFFF"
-        veins_color = "#FFFF00"
-
-    # Contour noir
-    t.color("black")
-    usefull.row_left_squares(t, 3, pixel_size)
-    usefull.row_right_squares(t, 5, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    for _ in range(2):
-        usefull.row_right_squares(t, 1, pixel_size)
-        t.right(90)
-        t.forward(pixel_size)
-        t.left(90)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.row_left_squares(t, 4, pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    for _ in range(3):
-        usefull.row_right_squares(t, 1, pixel_size)
-        t.right(90)
-        t.forward(pixel_size)
-        t.left(90)
-    usefull.left_square(t, pixel_size)
-    usefull.right_square(t, pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-
-    # Encrage
-    t.color(main_color)
-    t.begin_fill()
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(5*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    for _ in range(2):
-        t.left(90)
-        t.forward(pixel_size)
-        t.right(90)
-        t.forward(pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(3*pixel_size)
-    usefull.long_left_diagonal(t, pixel_size)
-    t.left(90)
-    usefull.low_traverse(t, pixel_size)
-    t.right(90)
-    t.forward(4*pixel_size)
-    
-    for _ in range(2):
-        t.left(90)
-        t.forward(pixel_size)
-        t.right(90)
-        t.forward(2*pixel_size)
-    for _ in range(2):
-        t.left(90)
-        t.forward(pixel_size)
-        t.right(90)
-        t.forward(pixel_size)
-    usefull.double_walk_along_up_square_left(t, pixel_size)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.end_fill()
-
-    # Veines
-    t.left(90)
-    t.forward(3*pixel_size)
-    t.right(90)
-    t.color(veins_color)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.left(180)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    usefull.right_square(t, pixel_size)
-    t.left(180)
-    usefull.row_right_squares(t, 4, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-
-    # Queue
-    t.up()
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.color(main_color)
-    t.down()
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.setheading(0)
-
-## TOUTES LES FONCTIONS POUR LE PLATEAU DE JEU ##
-
-def buisson(t, pixel_size) :
-    # Contour noir
-    t.color("black")
-    t.left(90)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 5, pixel_size)
-    t.backward(5*pixel_size)
-    usefull.row_right_squares(t, 5, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    usefull.row_left_squares(t, 1, 2*pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 1, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.row_right_squares(t, 1, 2*pixel_size)
-    t.left(180)
-    t.forward(3*pixel_size)
-
-    # Remplissage vert
-    t.color("#82DF15")
-    t.left(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.backward(2*pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.begin_fill()
-    for _ in range(2):
-        t.forward(3*pixel_size)
-        t.left(90)
-        t.forward(5*pixel_size)
-        t.left(90)
-    t.end_fill()
-    t.left(90)
-    t.forward(3*pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.left(180)
-    usefull.row_right_squares(t, 5, pixel_size)
-
-def colline(t, pixel_size):
-    # Contour noir
-    t.color("black")
-    for i in range(3):
-        usefull.row_left_squares(t, 1, pixel_size)
-        t.left(90)
-        t.forward(pixel_size)
-        t.right(90)
-        for _ in range(3-i):
-            usefull.row_left_squares(t, 2, pixel_size)
-            t.left(90)
-            t.forward(pixel_size)
-            usefull.row_right_squares(t, 2, pixel_size)
-            t.right(90)
-            t.forward(pixel_size)
-
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 3, pixel_size)
-    usefull.row_left_squares(t, 5, pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.left(90)
-    for i in range(3):
-        for _ in range(i+1):
-            t.right(90)
-            usefull.row_left_squares(t, 2, pixel_size)
-            t.left(90)
-            t.forward(pixel_size)
-            usefull.row_right_squares(t, 2, pixel_size)
-            t.right(90)
-            t.forward(pixel_size)
-            t.left(90)
-        usefull.row_right_squares(t, 1, pixel_size)
-        t.right(90)
-        t.forward(pixel_size)
-        t.left(90)
-
-    # Remplissage vert
-    t.left(180)
-    t.forward(pixel_size)
-    t.color("#0CC404")
-    t.begin_fill()
-    t.forward(60*pixel_size)
-    t.right(180)
-    t.begin_fill()
-    for i in range(3):
-        t.forward(pixel_size)
-        t.left(90)
-        t.forward(pixel_size)
-        t.right(90)
-        for _ in range(3-i):
-            t.forward(2*pixel_size)
-            t.left(90)
-            t.forward(pixel_size)
-            t.right(90)
-            t.forward(pixel_size)
-            t.left(90)
-            t.forward(2*pixel_size)
-            t.right(90)
-    for _ in range(2):
-        t.forward(2*pixel_size)
-        t.left(90)
-        t.forward(pixel_size)
-        t.right(90)
-    t.forward(3*pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.right(90)
-    t.forward(5*pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.left(90)
-    t.forward(3*pixel_size)
-    for _ in range(2):
-        t.right(90)
-        t.forward(pixel_size)
-        t.left(90)
-        t.forward(2*pixel_size)
-    for i in range(3):
-        for _ in range(i+1):
-            t.right(90)
-            t.forward(2*pixel_size)
-            t.left(90)
-            t.forward(pixel_size)
-            t.right(90)
-            t.forward(pixel_size)
-            t.left(90)
-            t.forward(2*pixel_size)
-        t.right(90)
-        t.forward(pixel_size)
-        t.left(90)
-        t.forward(pixel_size)
-    t.end_fill()
-
-    # Trous noirs
-
-    t.backward(32*pixel_size)
-    t.left(90)
-    t.forward(10*pixel_size)
-    t.color("#000000")
-    usefull.row_right_squares(t, 1, 3*pixel_size)
-    usefull.row_right_squares(t, 1, 3*pixel_size)
-    t.up()
-    t.right(90)
-    t.forward(7*pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.left(180)
-    t.down()
-    usefull.row_right_squares(t, 7, pixel_size)
-    t.forward(pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 9, pixel_size)
-    t.backward(pixel_size)
-    t.left(180)
-    usefull.row_left_squares(t, 7, pixel_size)
-
-def drapeau(t, pixel_size):
-    # Base
-    t.color("#66FF66")
-    t.begin_fill()
-    for _ in range(2):
-        t.forward(4*pixel_size)
-        t.left(90)
-        t.forward(232*pixel_size)
-        t.left(90)
-    t.end_fill()
-    
-    # Bille
-    t.left(90)
-    t.forward(232*pixel_size)
-    t.color("#000000")
-    t.forward(pixel_size)
-    t.right(90)
-    t.backward(pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.forward(pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 1, pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.forward(pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 1, pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.forward(pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 1, pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-
-    t.left(90)
-    t.forward(pixel_size)
-    t.color("#00CC00")
-    t.begin_fill()
-    for _ in range(4):
-        t.forward(6*pixel_size)
-        t.left(90)
-        t.forward(pixel_size)
-        t.right(90)
-        t.forward(pixel_size)
-        t.left(90)
-    t.end_fill()
-
-    # Flag
-    t.up()
-    t.forward(2*pixel_size)
-    usefull.double_right_linear_traverse(t, pixel_size)
-    t.color("#FFFFFF")
-    t.down()
-    t.begin_fill()
-    t.forward(25*pixel_size)
-    t.left(90)
-    for _ in range(25):
-        t.forward(pixel_size)
-        t.left(90)
-        t.forward(pixel_size)
-        t.right(90)
-    t.left(180)
-    t.forward(25*pixel_size)
-    t.end_fill()
-
-    # Tête de mort
-    t.left(90)
-    t.forward(3*pixel_size)
-    t.left(90)
-    t.forward(3*pixel_size)
-    t.right(90)
-    t.color("#00CC00")
-    usefull.row_left_squares(t, 9, pixel_size)
-    t.backward(8*pixel_size)
-    usefull.row_right_squares(t, 7, pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    t.forward(pixel_size)
-    t.begin_fill()
-    for _ in range(2):
-        t.left(90)
-        t.forward(6*pixel_size)
-        t.left(90)
-        t.forward(9*pixel_size)
-    t.end_fill()
-    t.left(90)
-    t.forward(6*pixel_size)
-    t.left(90)
-    t.forward(3*pixel_size)
-    usefull.row_right_squares(t, 3, pixel_size)
-    t.left(90)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.color("#FFFFFF")
-    t.right(90)
-    t.up()
-    t.backward(2*pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.up()
-    t.forward(2*pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.backward(pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.up()
-    t.right(90)
-    t.forward(5*pixel_size)
-    t.right(90)
-    t.down()
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.backward(pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-
-def escaliers(t, pixel_size):
-    # Fond marron
-    t.color("#BC410D") # Caramel
-    t.begin_fill()
-    for _ in range(4):
-        t.forward(23*pixel_size)
-        t.left(90)
-    t.end_fill()
-
-    # Partie inférieure
-    t.begin_fill()
-    t.color("#000000")
-    t.forward(21*pixel_size)
-    t.left(90)
-    for _ in range(2):
-        t.forward(pixel_size)
-        t.left(90)
-        t.forward(pixel_size)
-        t.right(90)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(12*pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.double_walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.right(90)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    t.right(90)
-    usefull.low_traverse(t, pixel_size)
-    t.end_fill()
-
-    # Partie droite
-    t.up()
-    t.left(90)
-    t.forward(23*pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.down()
-    t.begin_fill()
-    t.forward(22*pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.right(90)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(13*pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.right(90)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.end_fill()
-
-    # Partie supérieure
-    t.up()
-    t.left(90)
-    t.forward(22*pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.color("#F5ADAE")
-    t.down()
-    t.begin_fill()
-    t.forward(20*pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    t.right(90)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    t.right(90)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(12*pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    usefull.double_walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.end_fill()
-
-    # Partie gauche
-    t.up()
-    t.left(90)
-    t.forward(21*pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.down()
-    t.begin_fill()
-    t.forward(21*pixel_size)
-    t.left(90)
-    usefull.low_traverse(t, pixel_size)
-    usefull.double_walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    usefull.double_walk_along_up_square_right(t, pixel_size)
-    t.forward(13*pixel_size)
-    usefull.walk_along_up_square_left(t, pixel_size)
-    usefull.low_traverse(t, pixel_size)
-    usefull.double_walk_along_up_square_right(t, pixel_size)
-    t.forward(2*pixel_size)
-    t.right(90)
-    usefull.long_left_diagonal_from_above(t, pixel_size)
-    t.end_fill()
-
-def sol(t, pixel_size):
-    # Fond marron
-    t.color("#BB410E") # Caramel
-    usefull.row_left_squares(t, 1, 21*pixel_size)
-    t.backward(21*pixel_size)
-
-    # Bord inférieur
-    t.color("#000000")
-    usefull.row_right_squares(t, 9, pixel_size)
-    t.color("#B44104")
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.color("#FBAD97") # Ecru
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.color("#000000")
-    usefull.row_right_squares(t, 10, pixel_size)
-    t.color("#B44104")
-    usefull.row_right_squares(t, 1, pixel_size)
-
-    # Bord droit
-    t.left(90)
-    t.color("#000000")
-    usefull.row_left_squares(t, 14, pixel_size)
-    t.color("#B44104")
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.color("#000000")
-    usefull.row_left_squares(t, 6, pixel_size)
-    t.color("#B44104")
-    usefull.row_left_squares(t, 1, pixel_size)
-
-    # Bord supérieur
-    t.left(90)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.color("#FBAD97")
-    usefull.row_left_squares(t, 6, pixel_size)
-    t.color("#B44104")
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.color("#000000")
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.color("#FBAD97")
-    usefull.row_left_squares(t, 13, pixel_size)
-    t.color("#B44104")
-    usefull.row_left_squares(t, 1, pixel_size)
-
-    # Bord gauche
-    t.left(90)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.color("#FBAD97")
-    usefull.row_left_squares(t, 13, pixel_size)
-    t.color("#000000")
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.color("#FBAD97")
-    usefull.row_left_squares(t, 7, pixel_size)
-    t.color("#B44104")
-    usefull.row_left_squares(t, 1, pixel_size)
-
-    # Craquelures
-    t.up()
-    t.backward(8*pixel_size)
-    t.left(90)
-    t.forward(pixel_size)
-    t.color("#000000")
-    t.down()
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 6, pixel_size)
-    t.backward(6*pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.forward(pixel_size)
-    t.left(90)
-    t.backward(5*pixel_size)
-    usefull.row_left_squares(t, 6, pixel_size)
-    t.backward(6*pixel_size)
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 13, pixel_size)
-    t.up()
-    t.right(90)
-    t.forward(2*pixel_size)
-    t.right(90)
-    t.forward(4*pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 6, pixel_size)
-    t.up()
-    t.right(90)
-    t.forward(12*pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 2, pixel_size)
-
-    # Lumière
-    t.up()
-    t.right(90)
-    t.forward(21*pixel_size)
-    t.right(90)
-    t.forward(6*pixel_size)
-    t.right(90)
-    t.color("#FBAD97")
-    t.down()
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.up()
-    t.right(90)
-    t.forward(3*pixel_size)
-    t.left(90)
-    t.down()
-    usefull.row_left_squares(t, 6, pixel_size)
-    t.up()
-    t.forward(3*pixel_size)
-    t.right(90)
-    t.forward(3*pixel_size)
-    t.left(180)
-    t.down()
-    usefull.row_left_squares(t, 6, pixel_size)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.left(90)
-    usefull.row_right_squares(t, 6, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 7, pixel_size)
-    t.backward(7*pixel_size)
-    t.left(90)
-    t.up()
-    t.forward(pixel_size)
-    t.down()
-    usefull.row_right_squares(t, 6, pixel_size)
-
-def bloc(t, pixel_size) :
-    t.speed(0)
-
-    # Fond noir
-    t.color("black")
-    t.begin_fill()
-    for _ in range(4):
-        t.forward(12*pixel_size)
-        for _ in range(2):
-            t.right(90)
-            t.forward(pixel_size)
-            t.left(90)
-            t.forward(pixel_size)
-        t.right(90)
-    t.end_fill()
-
-    # Bordure
-    t.forward(12*pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    t.color("#754E17")
-    usefull.row_right_squares(t, 1, pixel_size)
-    usefull.row_left_squares(t, 12, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.backward(pixel_size)
-    usefull.row_left_squares(t, 12, pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-
-    # Fond jaune foncé
-    t.right(90)
-    t.forward(pixel_size)
-    t.color("#B3842E")
-    t.begin_fill()
-    for _ in range(4):
-        t.forward(11*pixel_size)
-        t.right(90)
-        t.forward(pixel_size)
-        t.left(90)
-        t.forward(pixel_size)
-        t.right(90)
-    t.end_fill()
-
-    # Fond jaune clair
-    t.forward(pixel_size)
-    usefull.walk_along_up_square_right(t, pixel_size)
-    t.color("#F2C31F")
-    t.begin_fill()
-    for _ in range(4):
-        t.forward(9*pixel_size)
-        t.right(90)
-        t.forward(pixel_size)
-        t.left(90)
-        t.forward(pixel_size)
-        t.right(90)
-    t.end_fill()
-
-    # Reflets blanc
-    t.forward(5*pixel_size)
-    t.color("white")
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.up()
-    t.forward(pixel_size)
-    t.down()
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.backward(pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-
-    # ?
-    t.backward(pixel_size)
-    t.color("black")
-    usefull.row_right_squares(t, 7, pixel_size)
-    usefull.double_walk_along_up_square_right(t, pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 3, pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.left(90)
-    t.forward(2*pixel_size)
-    for _ in range(2):
-        usefull.row_left_squares(t, 2, pixel_size)
-        t.right(90)
-        usefull.row_left_squares(t, 3, pixel_size)
-        t.right(90)
-    usefull.from_above(t, pixel_size)
-    t.forward(pixel_size)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 3, pixel_size)
-    t.left(180)
-    usefull.row_left_squares(t, 6, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 2, pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-
-    # Plein blanc
-    t.backward(pixel_size)
-    t.right(90)
-    t.color("white")
-    usefull.row_right_squares(t, 1, 2*pixel_size)
-    t.left(90)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.backward(3*pixel_size)
-    usefull.row_right_squares(t, 1, pixel_size)
-    t.right(90)
-    usefull.row_left_squares(t, 3, 2*pixel_size)
-    usefull.row_left_squares(t, 1, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 2, pixel_size)
-    t.right(90)
-    t.forward(pixel_size)
-    usefull.row_left_squares(t, 2, pixel_size)
-    t.right(90)
-    usefull.row_right_squares(t, 1, 2*pixel_size)
-    t.backward(2*pixel_size)
-    t.left(90)
-    for i in range(2):
-        usefull.row_left_squares(t, 1, 2*pixel_size)
-        if i != 1:
-            t.backward(pixel_size)
-    t.up()
-    t.left(90)
-    t.forward(3*pixel_size)
-    t.left(90)
-    t.down()
-    for i in range(2):
-        usefull.row_right_squares(t, 1, 2*pixel_size)
-        if i != 1:
-            t.backward(pixel_size)
-    t.setheading(0)
-
-### TEMPORAIRE ###
 
 def initiate_sound():
     ### CHARGEMENT DES DIFFERENTES MUSIQUES ###
@@ -2957,6 +31,7 @@ def initiate_sound():
     game_music = pygame.mixer.Sound("mario3ost.mp3")
     game_music.set_volume(0.3)
     game_music.play(-1)
+
 
 def display_sound_effect(element):
     sound = pygame.mixer.Sound("marioHitSoundEffect.mp3")
@@ -2996,6 +71,7 @@ def display_sound_effect(element):
             sound = pygame.mixer.Sound("tanukiSoundEffect.mp3")
     sound.play()
 
+
 def draw(drawing, color, t, pixel_size):
     turtle.tracer(0, 0)
     match drawing:
@@ -3006,7 +82,7 @@ def draw(drawing, color, t, pixel_size):
             boo(t, color, pixel_size)
             return
         case "fleur":
-            fleur(t, color, pixel_size-1)
+            fleur(t, color, pixel_size - 1)
             return
         case "marioLuigi":
             mario_luigi(t, color, pixel_size)
@@ -3021,10 +97,10 @@ def draw(drawing, color, t, pixel_size):
             nuage(t, color, pixel_size)
             return
         case "carapace":
-            carapace(t, color, pixel_size-1)
+            carapace(t, color, pixel_size - 1)
             return
         case "cheep":
-            cheep(t, color, pixel_size-1)
+            cheep(t, color, pixel_size - 1)
             return
         case "billBalle":
             bill_balle(t, color, pixel_size)
@@ -3039,7 +115,7 @@ def draw(drawing, color, t, pixel_size):
             piece(t, color, pixel_size)
             return
         case "pow":
-            pow(t, color, pixel_size-1)
+            pow(t, color, pixel_size - 1)
             return
         case "tanuki":
             tanuki(t, color, pixel_size)
@@ -3047,32 +123,39 @@ def draw(drawing, color, t, pixel_size):
         case _:
             return
 
+
 from turtle import *
+
 import pygame
 
-def play() :
+
+def play():
     initiate_sound()
 
     ### INITIALISATION DU GRAPHIQUE DU JEU ###
-    turtle.Screen().setup(1.0, 1.0) # On force la page de jeu à avoir la plus grande taille possible
-    turtle.bgcolor("#6092F5") # Fond de la page turtle bleu
-    turtle.Screen().setworldcoordinates(-1280, -800, 1280, 800) # On redéfinit les coins inférieur gauche et supérieur droit
-    landscape_turtle = turtle.Turtle() # On créé la tortue responsable du graphisme
-    landscape_turtle.hideturtle() # On cache cette tortue
+    turtle.Screen().setup(
+        1.0, 1.0
+    )  # On force la page de jeu à avoir la plus grande taille possible
+    turtle.bgcolor("#6092F5")  # Fond de la page turtle bleu
+    turtle.Screen().setworldcoordinates(
+        -1280, -800, 1280, 800
+    )  # On redéfinit les coins inférieur gauche et supérieur droit
+    landscape_turtle = turtle.Turtle()  # On créé la tortue responsable du graphisme
+    landscape_turtle.hideturtle()  # On cache cette tortue
 
     # Positionnement du sol
     turtle.tracer(0, 0)
     ground_pixel_size = 6
-    for line in range(2): # Deux lignes de sol pour l'effet de profondeur
+    for line in range(2):  # Deux lignes de sol pour l'effet de profondeur
         for i in range(20):
             landscape_turtle.up()
             if line == 0:
                 landscape_turtle.goto(-1350, -655)
-            else :
+            else:
                 landscape_turtle.goto(-1350, -795)
             if i != 0:
                 landscape_turtle.right(90)
-            landscape_turtle.forward(ground_pixel_size*23*i)
+            landscape_turtle.forward(ground_pixel_size * 23 * i)
             landscape_turtle.down()
             sol(landscape_turtle, ground_pixel_size)
         landscape_turtle.setheading(0)
@@ -3084,14 +167,14 @@ def play() :
         if nbMarches != 7:
             numberStairs = nbMarches
         else:
-            numberStairs = nbMarches -1
+            numberStairs = nbMarches - 1
         for blocNum in range(numberStairs):
             landscape_turtle.up()
             landscape_turtle.goto(-1350, -521)
             landscape_turtle.setheading(0)
-            landscape_turtle.forward(ground_pixel_size*23*(nbMarches-3))
+            landscape_turtle.forward(ground_pixel_size * 23 * (nbMarches - 3))
             landscape_turtle.left(90)
-            landscape_turtle.forward(ground_pixel_size*23*blocNum)
+            landscape_turtle.forward(ground_pixel_size * 23 * blocNum)
             landscape_turtle.right(90)
             landscape_turtle.down()
             escaliers(landscape_turtle, ground_pixel_size)
@@ -3118,7 +201,7 @@ def play() :
     landscape_turtle.right(90)
     landscape_turtle.forward(ground_pixel_size)
     landscape_turtle.right(90)
-    landscape_turtle.forward(10*ground_pixel_size)
+    landscape_turtle.forward(10 * ground_pixel_size)
     drapeau(landscape_turtle, 4)
 
     # Positionnement du buisson
@@ -3126,7 +209,7 @@ def play() :
     landscape_turtle.goto(911, -521)
     landscape_turtle.setheading(0)
     landscape_turtle.down()
-    buisson(landscape_turtle, 2*ground_pixel_size)
+    buisson(landscape_turtle, 2 * ground_pixel_size)
 
     # Initialisation du plateau de jeu
     landscape_turtle.up()
@@ -3162,19 +245,54 @@ def play() :
     ### MISE EN PLACE DU JEU ###
 
     # Demande à l'utilisateur d'entrer la difficulté
-    chosen_difficulty = turtle.textinput("Choisissez une difficulté", "Difficultés possibles : facile(F), normale(N), difficile(D)")
-    
-    # initialisation des éléments du jeu
-    full_tab_elements = ["champignon", "champignon", "boo", "boo", "fleur", "fleur", "marioLuigi", "marioLuigi", 
-                         "oeuf", "oeuf", "omb", "omb", "nuage", "nuage", "carapace", "carapace", 
-                         "cheep", "cheep", "billBalle", "billBalle", "etoile", "etoile", "goomba", "goomba", 
-                         "piece", "piece", "pow", "pow", "tanuki", "tanuki"]
-    
-    tab_elements = [] # tableau des éléments rempli selon la difficulté choisie
-    turtle_tab = [] # tableau des tortues des cartes du tableau
-    discovered_tab = [] # tableau pour connaitre les éléments découvert
+    chosen_difficulty = turtle.textinput(
+        "Choisissez une difficulté",
+        "Difficultés possibles : facile(F), normale(N), difficile(D)",
+    )
 
-    if chosen_difficulty == "facile" or chosen_difficulty == "F" or chosen_difficulty == "f" :
+    # initialisation des éléments du jeu
+    full_tab_elements = [
+        "champignon",
+        "champignon",
+        "boo",
+        "boo",
+        "fleur",
+        "fleur",
+        "marioLuigi",
+        "marioLuigi",
+        "oeuf",
+        "oeuf",
+        "omb",
+        "omb",
+        "nuage",
+        "nuage",
+        "carapace",
+        "carapace",
+        "cheep",
+        "cheep",
+        "billBalle",
+        "billBalle",
+        "etoile",
+        "etoile",
+        "goomba",
+        "goomba",
+        "piece",
+        "piece",
+        "pow",
+        "pow",
+        "tanuki",
+        "tanuki",
+    ]
+
+    tab_elements = []  # tableau des éléments rempli selon la difficulté choisie
+    turtle_tab = []  # tableau des tortues des cartes du tableau
+    discovered_tab = []  # tableau pour connaitre les éléments découvert
+
+    if (
+        chosen_difficulty == "facile"
+        or chosen_difficulty == "F"
+        or chosen_difficulty == "f"
+    ):
         tab_elements = full_tab_elements[:10]
         for i in range(10):
             discovered_tab.append(False)
@@ -3183,13 +301,17 @@ def play() :
             t.hideturtle()
             toAdd.append(t)
             if i < 5:
-                toAdd.append(-520+230*i)
+                toAdd.append(-520 + 230 * i)
                 toAdd.append(380)
             else:
-                toAdd.append(-520+230*(i-5))
+                toAdd.append(-520 + 230 * (i - 5))
                 toAdd.append(-20)
             turtle_tab.append(toAdd)
-    elif chosen_difficulty == "normale" or chosen_difficulty == "N" or chosen_difficulty == "n" :
+    elif (
+        chosen_difficulty == "normale"
+        or chosen_difficulty == "N"
+        or chosen_difficulty == "n"
+    ):
         tab_elements = full_tab_elements[:20]
         for i in range(20):
             discovered_tab.append(False)
@@ -3198,19 +320,19 @@ def play() :
             t.hideturtle()
             toAdd.append(t)
             if i < 5:
-                toAdd.append(-520+230*i)
+                toAdd.append(-520 + 230 * i)
                 toAdd.append(430)
             elif i < 10:
-                toAdd.append(-520+230*(i-5))
+                toAdd.append(-520 + 230 * (i - 5))
                 toAdd.append(230)
             elif i < 15:
-                toAdd.append(-520+230*(i-10))
+                toAdd.append(-520 + 230 * (i - 10))
                 toAdd.append(30)
             else:
-                toAdd.append(-520+230*(i-15))
+                toAdd.append(-520 + 230 * (i - 15))
                 toAdd.append(-170)
             turtle_tab.append(toAdd)
-    else :
+    else:
         tab_elements = full_tab_elements
         for i in range(30):
             discovered_tab.append(False)
@@ -3219,104 +341,116 @@ def play() :
             t.hideturtle()
             toAdd.append(t)
             if i < 5:
-                toAdd.append(-520+230*i)
+                toAdd.append(-520 + 230 * i)
                 toAdd.append(480)
             elif i < 10:
-                toAdd.append(-520+230*(i-5))
+                toAdd.append(-520 + 230 * (i - 5))
                 toAdd.append(350)
             elif i < 15:
-                toAdd.append(-520+230*(i-10))
+                toAdd.append(-520 + 230 * (i - 10))
                 toAdd.append(220)
             elif i < 20:
-                toAdd.append(-520+230*(i-15))
+                toAdd.append(-520 + 230 * (i - 15))
                 toAdd.append(90)
             elif i < 25:
-                toAdd.append(-520+230*(i-20))
+                toAdd.append(-520 + 230 * (i - 20))
                 toAdd.append(-40)
             else:
-                toAdd.append(-520+230*(i-25))
+                toAdd.append(-520 + 230 * (i - 25))
                 toAdd.append(-170)
             turtle_tab.append(toAdd)
 
-    random.shuffle(tab_elements) # on mélange le tableau
+    random.shuffle(tab_elements)  # on mélange le tableau
 
-    color_tab = [] # tableau des couleurs
+    color_tab = []  # tableau des couleurs
 
-    for i in range(len(tab_elements)) :
-        if tab_elements[i] in tab_elements[:i] : # si l'élément i est déjà passé, on insère un 2
+    for i in range(len(tab_elements)):
+        if (
+            tab_elements[i] in tab_elements[:i]
+        ):  # si l'élément i est déjà passé, on insère un 2
             color_tab.append(2)
-        else : # sinon, on insère un 1
+        else:  # sinon, on insère un 1
             color_tab.append(1)
 
     # Dessin des éléments et des cartes
     drawing_pixel_size = 5
-    drawing_turtle = turtle.Turtle() # Tortue qui va dessiner une unique fois les éléments
+    drawing_turtle = (
+        turtle.Turtle()
+    )  # Tortue qui va dessiner une unique fois les éléments
     drawing_turtle.hideturtle()
 
-    if chosen_difficulty == "facile" or chosen_difficulty == "F" or chosen_difficulty == "f":
+    if (
+        chosen_difficulty == "facile"
+        or chosen_difficulty == "F"
+        or chosen_difficulty == "f"
+    ):
         for i in range(len(turtle_tab)):
             turtle_tab[i][0].up()
             if i < 5:
                 drawing_turtle.up()
-                drawing_turtle.goto(-500+230*i, 300)
+                drawing_turtle.goto(-500 + 230 * i, 300)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
                 turtle_tab[i][0].down()
-                bloc(turtle_tab[i][0], drawing_pixel_size+2)
+                bloc(turtle_tab[i][0], drawing_pixel_size + 2)
                 turtle.update()
                 turtle_tab[i][0].hideturtle()
             else:
                 drawing_turtle.up()
-                drawing_turtle.goto(-500+230*(i-5), -100)
+                drawing_turtle.goto(-500 + 230 * (i - 5), -100)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
                 turtle_tab[i][0].down()
-                bloc(turtle_tab[i][0], drawing_pixel_size+2)
+                bloc(turtle_tab[i][0], drawing_pixel_size + 2)
                 turtle.update()
                 turtle_tab[i][0].hideturtle()
-    elif chosen_difficulty == "normale" or chosen_difficulty == "N" or chosen_difficulty == "n":
+    elif (
+        chosen_difficulty == "normale"
+        or chosen_difficulty == "N"
+        or chosen_difficulty == "n"
+    ):
         for i in range(len(turtle_tab)):
             turtle_tab[i][0].up()
             if i < 5:
                 drawing_turtle.up()
-                drawing_turtle.goto(-500+230*i, 350)
+                drawing_turtle.goto(-500 + 230 * i, 350)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
                 turtle_tab[i][0].down()
-                bloc(turtle_tab[i][0], drawing_pixel_size+2)
+                bloc(turtle_tab[i][0], drawing_pixel_size + 2)
                 turtle.update()
                 turtle_tab[i][0].hideturtle()
             elif i < 10:
                 drawing_turtle.up()
-                drawing_turtle.goto(-500+230*(i-5), 150)
+                drawing_turtle.goto(-500 + 230 * (i - 5), 150)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
                 turtle_tab[i][0].down()
-                bloc(turtle_tab[i][0], drawing_pixel_size+2)
+                bloc(turtle_tab[i][0], drawing_pixel_size + 2)
                 turtle.update()
                 turtle_tab[i][0].hideturtle()
             elif i < 15:
                 drawing_turtle.up()
-                drawing_turtle.goto(-500+230*(i-10), -50)
+                drawing_turtle.goto(-500 + 230 * (i - 10), -50)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
                 turtle_tab[i][0].down()
-                bloc(turtle_tab[i][0], drawing_pixel_size+2)
+                bloc(turtle_tab[i][0], drawing_pixel_size + 2)
                 turtle.update()
                 turtle_tab[i][0].hideturtle()
             else:
                 drawing_turtle.up()
-                drawing_turtle.goto(-500+230*(i-15), -250)
+                drawing_turtle.goto(-500 + 230 * (i - 15), -250)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
                 turtle_tab[i][0].down()
-                bloc(turtle_tab[i][0], drawing_pixel_size+2)
+                bloc(turtle_tab[i][0], drawing_pixel_size + 2)
                 turtle.update()
                 turtle_tab[i][0].hideturtle()
 
@@ -3325,134 +459,166 @@ def play() :
             turtle_tab[i][0].up()
             if i < 5:
                 drawing_turtle.up()
-                drawing_turtle.goto(-500+230*i, 400)
+                drawing_turtle.goto(-500 + 230 * i, 400)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
                 turtle_tab[i][0].down()
-                bloc(turtle_tab[i][0], drawing_pixel_size+2)
+                bloc(turtle_tab[i][0], drawing_pixel_size + 2)
                 turtle.update()
                 turtle_tab[i][0].hideturtle()
             elif i < 10:
                 drawing_turtle.up()
-                drawing_turtle.goto(-500+230*(i-5), 270)
+                drawing_turtle.goto(-500 + 230 * (i - 5), 270)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
                 turtle_tab[i][0].down()
-                bloc(turtle_tab[i][0], drawing_pixel_size+2)
+                bloc(turtle_tab[i][0], drawing_pixel_size + 2)
                 turtle.update()
                 turtle_tab[i][0].hideturtle()
             elif i < 15:
                 drawing_turtle.up()
-                drawing_turtle.goto(-500+230*(i-10), 140)
+                drawing_turtle.goto(-500 + 230 * (i - 10), 140)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
                 turtle_tab[i][0].down()
-                bloc(turtle_tab[i][0], drawing_pixel_size+2)
+                bloc(turtle_tab[i][0], drawing_pixel_size + 2)
                 turtle.update()
                 turtle_tab[i][0].hideturtle()
             elif i < 20:
                 drawing_turtle.up()
-                drawing_turtle.goto(-500+230*(i-15), 10)
+                drawing_turtle.goto(-500 + 230 * (i - 15), 10)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
                 turtle_tab[i][0].down()
-                bloc(turtle_tab[i][0], drawing_pixel_size+2)
+                bloc(turtle_tab[i][0], drawing_pixel_size + 2)
                 turtle.update()
                 turtle_tab[i][0].hideturtle()
             elif i < 25:
                 drawing_turtle.up()
-                drawing_turtle.goto(-500+230*(i-20), -120)
+                drawing_turtle.goto(-500 + 230 * (i - 20), -120)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
                 turtle_tab[i][0].down()
-                bloc(turtle_tab[i][0], drawing_pixel_size+2)
+                bloc(turtle_tab[i][0], drawing_pixel_size + 2)
                 turtle.update()
                 turtle_tab[i][0].hideturtle()
             else:
                 drawing_turtle.up()
-                drawing_turtle.goto(-500+230*(i-25), -250)
+                drawing_turtle.goto(-500 + 230 * (i - 25), -250)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
                 turtle_tab[i][0].down()
-                bloc(turtle_tab[i][0], drawing_pixel_size+2)
+                bloc(turtle_tab[i][0], drawing_pixel_size + 2)
                 turtle.update()
                 turtle_tab[i][0].hideturtle()
-            
+
     landscape_turtle.goto(10000, 10000)
     landscape_turtle.hideturtle()
 
     ### BOUCLE DE JEU ###
     gameFinished = False
-    while not(gameFinished):
+    while not (gameFinished):
         firstInput = -1
         secondInput = -1
         legalFirstInput = False
         legalSecondInput = False
         # Tant que les deux valeurs demandées ne sont pas bonnes on les redemande
-        while not(legalFirstInput):
+        while not (legalFirstInput):
             # On réinitialise les valeurs
             firstInput = -1
             secondInput = -1
             legalFirstInput = False
             legalSecondInput = False
 
-            firstInput = int(turtle.textinput("Choisissez une carte à retourner : ", f"valeur entre 1 et {len(tab_elements)}"))
-            if firstInput < 1 or firstInput > len(tab_elements) or discovered_tab[firstInput-1]:
-                turtle.write("Erreur : Valeur non légale !", align="center", font=("Arial", 12, "normal"))
+            firstInput = int(
+                turtle.textinput(
+                    "Choisissez une carte à retourner : ",
+                    f"valeur entre 1 et {len(tab_elements)}",
+                )
+            )
+            if (
+                firstInput < 1
+                or firstInput > len(tab_elements)
+                or discovered_tab[firstInput - 1]
+            ):
+                turtle.write(
+                    "Erreur : Valeur non légale !",
+                    align="center",
+                    font=("Arial", 12, "normal"),
+                )
             else:
                 legalFirstInput = True
-                while not(legalSecondInput):
-                    secondInput = int(turtle.textinput("Choisissez une carte à retourner : ", f"valeur entre 1 et {len(tab_elements)}"))
-                    if secondInput < 1 or secondInput > len(tab_elements) or discovered_tab[secondInput-1]:
-                        turtle.write("Erreur : Valeur non légale !", align="center", font=("Arial", 12, "normal"))
+                while not (legalSecondInput):
+                    secondInput = int(
+                        turtle.textinput(
+                            "Choisissez une carte à retourner : ",
+                            f"valeur entre 1 et {len(tab_elements)}",
+                        )
+                    )
+                    if (
+                        secondInput < 1
+                        or secondInput > len(tab_elements)
+                        or discovered_tab[secondInput - 1]
+                    ):
+                        turtle.write(
+                            "Erreur : Valeur non légale !",
+                            align="center",
+                            font=("Arial", 12, "normal"),
+                        )
                     elif secondInput == firstInput:
-                        turtle.write("Erreur : Vous ne pouvez pas retourner deux fois la même carte !", align="center", font=("Arial", 12, "normal"))
+                        turtle.write(
+                            "Erreur : Vous ne pouvez pas retourner deux fois la même carte !",
+                            align="center",
+                            font=("Arial", 12, "normal"),
+                        )
                     else:
                         legalSecondInput = True
 
         # On efface les deux cases demandées et on laisse du temps
         display_sound_effect("block")
         time.sleep(1)
-        turtle_tab[firstInput-1][0].reset()
-        turtle_tab[secondInput-1][0].reset()
+        turtle_tab[firstInput - 1][0].reset()
+        turtle_tab[secondInput - 1][0].reset()
         turtle.update()
 
         # On vérifie que les éléments découverts soient les mêmes
-        if tab_elements[firstInput-1] == tab_elements[secondInput-1]:
-            display_sound_effect(tab_elements[firstInput-1])
-            discovered_tab[firstInput-1] = True
-            discovered_tab[secondInput-1] = True
+        if tab_elements[firstInput - 1] == tab_elements[secondInput - 1]:
+            display_sound_effect(tab_elements[firstInput - 1])
+            discovered_tab[firstInput - 1] = True
+            discovered_tab[secondInput - 1] = True
             # On vérifie qu'on soit à la fin du jeu
             hasFalse = False
             for i in range(len(discovered_tab)):
-                if not(discovered_tab[i]):
+                if not (discovered_tab[i]):
                     hasFalse = True
                     break
-            if not(hasFalse):
+            if not (hasFalse):
                 gameFinished = True
         else:
             # Son mauvaise réponse
             display_sound_effect("wrong")
             time.sleep(2)
             # On remet les cases effacées
-            turtle_tab[firstInput-1][0].up()
-            turtle_tab[firstInput-1][0].goto(turtle_tab[firstInput-1][1], turtle_tab[firstInput-1][2])
-            turtle_tab[firstInput-1][0].down()
-            bloc(turtle_tab[firstInput-1][0], drawing_pixel_size+2)
-            turtle_tab[firstInput-1][0].hideturtle()
+            turtle_tab[firstInput - 1][0].up()
+            turtle_tab[firstInput - 1][0].goto(
+                turtle_tab[firstInput - 1][1], turtle_tab[firstInput - 1][2]
+            )
+            turtle_tab[firstInput - 1][0].down()
+            bloc(turtle_tab[firstInput - 1][0], drawing_pixel_size + 2)
+            turtle_tab[firstInput - 1][0].hideturtle()
 
-            turtle_tab[secondInput-1][0].up()
-            turtle_tab[secondInput-1][0].goto(turtle_tab[secondInput-1][1], turtle_tab[secondInput-1][2])
-            turtle_tab[secondInput-1][0].down()
-            bloc(turtle_tab[secondInput-1][0], drawing_pixel_size+2)
-            turtle_tab[secondInput-1][0].hideturtle()
-    
+            turtle_tab[secondInput - 1][0].up()
+            turtle_tab[secondInput - 1][0].goto(
+                turtle_tab[secondInput - 1][1], turtle_tab[secondInput - 1][2]
+            )
+            turtle_tab[secondInput - 1][0].down()
+            bloc(turtle_tab[secondInput - 1][0], drawing_pixel_size + 2)
+            turtle_tab[secondInput - 1][0].hideturtle()
+
     time.sleep(3)
-
-play()
