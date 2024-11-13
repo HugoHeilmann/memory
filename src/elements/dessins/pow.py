@@ -12,6 +12,7 @@ def pow(t, type_color, pixel_size):
         border_color = "#B22222"
 
     # Fond
+    t.color("#000000")
     t.begin_fill()
     for _ in range(4):
         t.forward(18 * pixel_size)

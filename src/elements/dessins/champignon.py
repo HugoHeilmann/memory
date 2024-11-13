@@ -10,6 +10,7 @@ def champignon(t, type_color, pixel_size):
         color = "#00FF00"
 
     # Contour noir
+    t.color("#000000")
     t.right(90)
     row_right_squares(t, 2, pixel_size)
     left_square(t, pixel_size)

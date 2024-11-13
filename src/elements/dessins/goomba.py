@@ -10,6 +10,7 @@ def goomba(t, type_color, pixel_size):
         body_color = "#FFD700"
 
     # Pieds
+    t.color("#000000")
     row_left_squares(t, 2, pixel_size)
     t.backward(3 * pixel_size)
     row_right_squares(t, 5, pixel_size)

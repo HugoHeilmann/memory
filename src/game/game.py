@@ -28,47 +28,47 @@ from elements.plateau.sol import sol
 def initiate_sound():
     ### CHARGEMENT DES DIFFERENTES MUSIQUES ###
     pygame.mixer.init()
-    game_music = pygame.mixer.Sound("mario3ost.mp3")
+    game_music = pygame.mixer.Sound("assets/mario3ost.mp3")
     game_music.set_volume(0.3)
     game_music.play(-1)
 
 
 def display_sound_effect(element):
-    sound = pygame.mixer.Sound("marioHitSoundEffect.mp3")
+    sound = pygame.mixer.Sound("assets/marioHitSoundEffect.mp3")
     sound.set_volume(0.8)
     match element:
         case "block":
-            sound = pygame.mixer.Sound("blockSoundEffect.mp3")
+            sound = pygame.mixer.Sound("assets/blockSoundEffect.mp3")
         case "champignon":
-            sound = pygame.mixer.Sound("pluslifeSoundEffect.mp3")
+            sound = pygame.mixer.Sound("assets/pluslifeSoundEffect.mp3")
         case "boo":
-            sound = pygame.mixer.Sound("booSoundEffect.mp3")
+            sound = pygame.mixer.Sound("assets/booSoundEffect.mp3")
         case "fleur":
-            sound = pygame.mixer.Sound("powerupSoundEffect.mp3")
+            sound = pygame.mixer.Sound("assets/powerupSoundEffect.mp3")
         case "marioLuigi":
-            sound = pygame.mixer.Sound("luigiSoundEffect.mp3")
+            sound = pygame.mixer.Sound("assets/luigiSoundEffect.mp3")
         case "oeuf":
-            sound = pygame.mixer.Sound("yoshiSoundEffect.mp3")
+            sound = pygame.mixer.Sound("assets/yoshiSoundEffect.mp3")
         case "omb":
-            sound = pygame.mixer.Sound("ombSoundEffect.mp3")
+            sound = pygame.mixer.Sound("assets/ombSoundEffect.mp3")
         case "nuage":
-            sound = pygame.mixer.Sound("lakituSoundEffect.mp3")
+            sound = pygame.mixer.Sound("assets/lakituSoundEffect.mp3")
         case "carapace":
-            sound = pygame.mixer.Sound("shellSoundEffect.mp3")
+            sound = pygame.mixer.Sound("assets/shellSoundEffect.mp3")
         case "cheep":
-            sound = pygame.mixer.Sound("waterSoundEffect.mp3")
+            sound = pygame.mixer.Sound("assets/waterSoundEffect.mp3")
         case "billBalle":
-            sound = pygame.mixer.Sound("bulletBillSoundEffect.mp3")
+            sound = pygame.mixer.Sound("assets/bulletBillSoundEffect.mp3")
         case "etoile":
-            sound = pygame.mixer.Sound("starSoundEffect.mp3")
+            sound = pygame.mixer.Sound("assets/starSoundEffect.mp3")
         case "goomba":
-            sound = pygame.mixer.Sound("goombaSoundEffect.mp3")
+            sound = pygame.mixer.Sound("assets/goombaSoundEffect.mp3")
         case "piece":
-            sound = pygame.mixer.Sound("coinSoundEffect.mp3")
+            sound = pygame.mixer.Sound("assets/coinSoundEffect.mp3")
         case "pow":
-            sound = pygame.mixer.Sound("powSoundEffect.mp3")
+            sound = pygame.mixer.Sound("assets/powSoundEffect.mp3")
         case "tanuki":
-            sound = pygame.mixer.Sound("tanukiSoundEffect.mp3")
+            sound = pygame.mixer.Sound("assets/tanukiSoundEffect.mp3")
     sound.play()
 
 
@@ -240,7 +240,6 @@ def play():
         landscape_turtle.circle(-50, 90)
     landscape_turtle.end_fill()
     landscape_turtle.up()
-    landscape_turtle.hideturtle()
 
     ### MISE EN PLACE DU JEU ###
 
@@ -389,6 +388,7 @@ def play():
             if i < 5:
                 drawing_turtle.up()
                 drawing_turtle.goto(-500 + 230 * i, 300)
+                drawing_turtle.setheading(0)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
@@ -399,6 +399,7 @@ def play():
             else:
                 drawing_turtle.up()
                 drawing_turtle.goto(-500 + 230 * (i - 5), -100)
+                drawing_turtle.setheading(0)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
@@ -416,6 +417,7 @@ def play():
             if i < 5:
                 drawing_turtle.up()
                 drawing_turtle.goto(-500 + 230 * i, 350)
+                drawing_turtle.setheading(0)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
@@ -426,6 +428,7 @@ def play():
             elif i < 10:
                 drawing_turtle.up()
                 drawing_turtle.goto(-500 + 230 * (i - 5), 150)
+                drawing_turtle.setheading(0)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
@@ -436,6 +439,7 @@ def play():
             elif i < 15:
                 drawing_turtle.up()
                 drawing_turtle.goto(-500 + 230 * (i - 10), -50)
+                drawing_turtle.setheading(0)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
@@ -446,6 +450,7 @@ def play():
             else:
                 drawing_turtle.up()
                 drawing_turtle.goto(-500 + 230 * (i - 15), -250)
+                drawing_turtle.setheading(0)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
@@ -460,6 +465,7 @@ def play():
             if i < 5:
                 drawing_turtle.up()
                 drawing_turtle.goto(-500 + 230 * i, 400)
+                drawing_turtle.setheading(0)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
@@ -470,6 +476,7 @@ def play():
             elif i < 10:
                 drawing_turtle.up()
                 drawing_turtle.goto(-500 + 230 * (i - 5), 270)
+                drawing_turtle.setheading(0)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
@@ -480,6 +487,7 @@ def play():
             elif i < 15:
                 drawing_turtle.up()
                 drawing_turtle.goto(-500 + 230 * (i - 10), 140)
+                drawing_turtle.setheading(0)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
@@ -490,6 +498,7 @@ def play():
             elif i < 20:
                 drawing_turtle.up()
                 drawing_turtle.goto(-500 + 230 * (i - 15), 10)
+                drawing_turtle.setheading(0)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
@@ -500,6 +509,7 @@ def play():
             elif i < 25:
                 drawing_turtle.up()
                 drawing_turtle.goto(-500 + 230 * (i - 20), -120)
+                drawing_turtle.setheading(0)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
@@ -510,6 +520,7 @@ def play():
             else:
                 drawing_turtle.up()
                 drawing_turtle.goto(-500 + 230 * (i - 25), -250)
+                drawing_turtle.setheading(0)
                 draw(tab_elements[i], color_tab[i], drawing_turtle, drawing_pixel_size)
                 turtle_tab[i][0].up()
                 turtle_tab[i][0].goto(turtle_tab[i][1], turtle_tab[i][2])
@@ -519,7 +530,6 @@ def play():
                 turtle_tab[i][0].hideturtle()
 
     landscape_turtle.goto(10000, 10000)
-    landscape_turtle.hideturtle()
 
     ### BOUCLE DE JEU ###
     gameFinished = False
@@ -536,48 +546,47 @@ def play():
             legalFirstInput = False
             legalSecondInput = False
 
+            to_discover = []
+            for i in range(len(discovered_tab)):
+                if not discovered_tab[i]:
+                    to_discover.append(i + 1)
+            string = ""
+            for i in range(len(to_discover) - 1):
+                string += str(to_discover[i]) + ", "
+            string += str(to_discover[len(to_discover) - 1])
             firstInput = int(
                 turtle.textinput(
                     "Choisissez une carte à retourner : ",
-                    f"valeur entre 1 et {len(tab_elements)}",
+                    ("valeurs possibles : " + string),
                 )
             )
             if (
-                firstInput < 1
-                or firstInput > len(tab_elements)
-                or discovered_tab[firstInput - 1]
+                firstInput > 0
+                and firstInput <= len(tab_elements)
+                and not discovered_tab[firstInput - 1]
             ):
-                turtle.write(
-                    "Erreur : Valeur non légale !",
-                    align="center",
-                    font=("Arial", 12, "normal"),
-                )
-            else:
                 legalFirstInput = True
                 while not (legalSecondInput):
+                    to_discover = []
+                    for i in range(len(discovered_tab)):
+                        if not discovered_tab[i] and firstInput != i + 1:
+                            to_discover.append(i + 1)
+                    string = ""
+                    for i in range(len(to_discover) - 1):
+                        string += str(to_discover[i]) + ", "
+                    string += str(to_discover[len(to_discover) - 1])
                     secondInput = int(
                         turtle.textinput(
                             "Choisissez une carte à retourner : ",
-                            f"valeur entre 1 et {len(tab_elements)}",
+                            ("valeurs possibles : " + string),
                         )
                     )
                     if (
-                        secondInput < 1
-                        or secondInput > len(tab_elements)
-                        or discovered_tab[secondInput - 1]
+                        secondInput > 0
+                        and secondInput <= len(tab_elements)
+                        and not discovered_tab[secondInput - 1]
+                        and secondInput != firstInput
                     ):
-                        turtle.write(
-                            "Erreur : Valeur non légale !",
-                            align="center",
-                            font=("Arial", 12, "normal"),
-                        )
-                    elif secondInput == firstInput:
-                        turtle.write(
-                            "Erreur : Vous ne pouvez pas retourner deux fois la même carte !",
-                            align="center",
-                            font=("Arial", 12, "normal"),
-                        )
-                    else:
                         legalSecondInput = True
 
         # On efface les deux cases demandées et on laisse du temps

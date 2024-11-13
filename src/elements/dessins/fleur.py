@@ -10,6 +10,7 @@ def fleur(t, type_color, pixel_size):
         petal_color = "#00BFFF"
 
     # Contour noir
+    t.color("#000000")
     row_right_squares(t, 15, pixel_size)
     t.backward(pixel_size)
     t.left(90)

@@ -10,6 +10,7 @@ def cheep(t, type_color, pixel_size):
         body_color = "#00FF00"
 
     # Contour noir
+    t.color("#000000")
     row_left_squares(t, 4, pixel_size)
     t.backward(pixel_size)
     row_right_squares(t, 6, pixel_size)

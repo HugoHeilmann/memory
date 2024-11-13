@@ -10,6 +10,7 @@ def carapace(t, type_color, pixel_size):
         main_color = "#DC143C"
 
     # Contour noir
+    t.color("#000000")
     left_square(t, pixel_size)
     row_right_squares(t, 1, pixel_size)
     double_walk_along_up_square_right(t, pixel_size)

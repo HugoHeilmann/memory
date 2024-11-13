@@ -12,6 +12,7 @@ def oeuf(t, type_color, pixel_size):
         dots_color = "#228B22"
 
     # Contour noir
+    t.color("#000000")
     row_right_squares(t, 4, pixel_size)
     row_left_squares(t, 2, pixel_size)
     t.left(90)

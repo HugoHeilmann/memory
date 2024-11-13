@@ -12,6 +12,7 @@ def boo(t, type_color, pixel_size):
         mouth_color = "#191970"
 
     # Contour noir
+    t.color("#000000")
     row_right_squares(t, 4, pixel_size)
     row_left_squares(t, 2, pixel_size)
     double_walk_along_up_square_left(t, pixel_size)

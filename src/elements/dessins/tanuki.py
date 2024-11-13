@@ -12,6 +12,7 @@ def tanuki(t, type_color, pixel_size):
         veins_color = "#FFFF00"
 
     # Contour noir
+    t.color("#000000")
     row_left_squares(t, 3, pixel_size)
     row_right_squares(t, 5, pixel_size)
     row_left_squares(t, 2, pixel_size)

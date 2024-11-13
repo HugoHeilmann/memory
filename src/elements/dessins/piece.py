@@ -10,6 +10,7 @@ def piece(t, type_color, pixel_size):
         color = "#B22222"
 
     # Contour noir
+    t.color("#000000")
     row_right_squares(t, 4, pixel_size)
     row_left_squares(t, 2, pixel_size)
     t.left(90)
