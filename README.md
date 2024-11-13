@@ -1,28 +1,54 @@
-# PROJET INCOMPLET
-
 # Memory
 
->Le but de ce projet est d'écrire un jeu de memory avec comme interface graphique le module Turtle du langage Python.
+## Description
 
-## Règles du jeu
+Memory Game est un jeu de mémoire classique où le but est de trouver toutes les paires d'images identiques. Le jeu se compose d'un ensemble de cartes retournées, et le joueur doit les retourner deux par deux pour retrouver les paires correspondantes.
 
-C'est un jeu en solitaire. Des cases numérotées sont réparties dans un décor, dans ces cases se cachent des objets. Quand on sélectionne 2 cases cachant le même objet, les 2 cases sont découvertes. Quand toutes les cases sont découvertes, le jeu est fini.
+Le jeu se termine lorsque toutes les paires ont été trouvées.
 
-## Contraintes à respecter
+## Caractéristiques principales
 
-Les objets sont des dessins faits avec Turtle, une paire contient 2 objets identiques mais de couleurs différentes. Ces objets sont situés dans un décor.
+- Interface simple et intuitive.
+- Plusieurs niveaux de difficulté avec un nombre variable de cartes.
 
-## Boucle de jeu
+## Technologies utilisées
 
-Le programme principal suivra l'algorithme suivant:
+- **Language** : `Python`</br>
+- **Librairies** : `Turtle`, `random`, `time`, `pygame`
 
-```
-Afficher le décor
-Créer un nombre pair de cases couvertes
+## Installation
 
-Tant que toutes les paires ne sont pas découvertes:
-    Demander un couple de n° de cases
-    Découvrir les 2 cases
-    Si les 2 cases contiennent le même objets, alors elles restent découvertes
-    Sinon, recouvrir les 2 cases.
-```
+- **Clone the repository** :
+    ```bash
+    git clone https://github.com/HugoHeilmann/memory.git
+    ```
+
+- **Install a sufficient version of Python (3.6)** :
+    - **Debian/Ubuntu** : 
+    ```bash
+    sudo apt-get install python3.6
+    ```
+    - **Windows** :
+    >https://www.python.org/downloads/
+    - **macOS** :
+    ```bash
+    brew install python@3.6*
+    ```
+
+- **Run the game** :
+    ```bash
+    python play.py
+    # ou
+    python3 play.py
+    ```
+
+
+## Utilisation
+
+- Choix de la difficulté : Facile(f/F), Normale(n/N), Difficile(d/D)
+- Tant que le jeu n'est pas terminé :
+    - Choisir le numéro de 2 cartes à retourner
+
+## Auteur
+
+**Hugo Heilmann, IT student, Polytech' Nice-Sophia**
